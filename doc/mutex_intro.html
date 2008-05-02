@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr"><head><title>Man pages - Club d'entraide des développeurs francophones</title>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="generator" content="developpez-com">
+  <meta name="description" content="Man pages de www.developpez.com">
+  <meta name="keywords" content="Man, page, manuel, utilisateur, Linux">
+  <meta name="MS.LOCALE" content="fr-FR">
+  <link rel="stylesheet" type="text/css" href="mutex_intro_files/mainstyle-xhtml.css">
+  <link rel="stylesheet" type="text/css" media="print" href="mutex_intro_files/printer-xhtml.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="mutex_intro_files/article.css"></head><body xml:lang="fr"> <table cellspacing="5" width="100%">
+  <tbody><tr>
+    <td align="center">
+     <table cellpadding="0" cellspacing="0" width="100%">
+     <tbody><tr><td>
+      <table cellspacing="0" width="100%">
+      <tbody><tr>
+        <td>
+          <a href="http://www.developpez.com/"><img src="mutex_intro_files/logo.gif" alt="Accueil"></a>
+        </td>
+        <td align="center" valign="middle">
+     <span class="cachee">
+	  <!--JavaScript Tag // Tag for network 224: Hi-Media France // Website: zzz - developpez.com -->
+     <script type="text/javascript"><!--
+     document.write('<scr'+'ipt language="javascript1.1"     src="http://adserver.adtech.de/addyn|3.0|224|1409169|0|1|ADTECH;loc=100;target=_blank; grp=1;misc='+new	  Date().getTime()+'"></scri'+'pt>');
+     //-->
+     </script><script style="display: none;" language="javascript1.1" src="mutex_intro_files/addyn3.js"></script><noscript><div><a
+href="http://adserver.adtech.de/adlink|3.0|224|1409169|0|1|ADTECH;loc=300;grp=1"><img
+src="http://adserver.adtech.de/adserv|3.0|224|1409169|0|1|ADTECH;loc=300;grp=1"
+alt="" /></a></div></noscript>
+     <!-- End of JavaScript Tag -->
+     </span>
+        </td>
+      </tr>
+      </tbody></table>
+      <table cellspacing="0" width="100%">
+      <tbody><tr>
+          <td class="tdha"></td>
+          <td valign="top">
+	     <div class="cachee">
+             <form method="get" action="http://www.google.com/custom">
+             <div><b>Rechercher:</b>
+             <input name="q" size="20" maxlength="255" value="" type="text">
+             <input name="sa" value="Go" type="submit"><br>
+             <input name="cof" value="L:http://www.developpez.com/template/logo.gif;AH:center;GL:0;S:http://www.developpez.com;AWFID:466bd8f66d98f56f;" type="hidden">
+             <input name="domains" value="developpez.com;developpez.net" type="hidden">
+             <input name="sitesearch" value="developpez.com" checked="checked" type="radio"><span class="dev">sur developpez.com</span>
+             <input name="sitesearch" value="developpez.net" type="radio"><span class="dev">sur les forums</span>
+             </div></form>
+	     </div>
+          </td>
+          <td align="right">
+             <span class="cachee">
+              <a href="http://www.developpez.net/forums/index.php" onclick="window.open(this.href); return false;" class="ntdrub">Forums</a>&nbsp;|&nbsp;<a href="http://general.developpez.com/cours/" class="ntdrub">Tutoriels</a>&nbsp;|&nbsp;<a href="http://general.developpez.com/faq/" class="ntdrub">F.A.Q's</a>&nbsp;|&nbsp;<a href="http://club.developpez.com/redaction/" class="ntdrub">Participez</a>&nbsp;|&nbsp;<a href="http://www.developpez.com/hebergement/" class="ntdrub">Hébergement</a>&nbsp;|&nbsp;<a href="http://club.developpez.com/contacts/" class="ntdrub">Contacts</a>
+             </span>
+          </td>
+          <td class="tdha"></td>
+      </tr>
+      <tr><td class="tdhb"></td></tr>
+      </tbody></table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <table class="cachee" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr class="bleufo">
+      <td class="iongl"><img src="mutex_intro_files/begh.gif" alt=""></td>
+      <td class="bgmarron"><a href="http://www.developpez.com/" class="ntdrub">Accueil</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://conception.developpez.com/" class="ntdrub">Conception</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://java.developpez.com/" class="ntdrub">Java</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://dotnet.developpez.com/" class="ntdrub">DotNET</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://vb.developpez.com/" class="ntdrub">Visual&nbsp;Basic</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://c.developpez.com/" class="ntdrub">&nbsp;C&nbsp;</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://cpp.developpez.com/" class="ntdrub">C++</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://delphi.developpez.com/" class="ntdrub">Delphi</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://office.developpez.com/" class="ntdrub">MS-Office</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://sgbd.developpez.com/" class="ntdrub">SQL&nbsp;&amp;&nbsp;SGBD</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://oracle.developpez.com/" class="ntdrub">Oracle</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://4d.developpez.com/" class="ntdrub">&nbsp;4D&nbsp;</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bgh.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://business-intelligence.developpez.com/" class="ntdrub">Business&nbsp;Intelligence</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bdh.gif" alt=""></td>
+   </tr>
+   </tbody></table>
+   </td></tr>
+   <tr><td>
+    <table class="cachee" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+      <td class="iongl"><img src="mutex_intro_files/beg.gif" alt=""></td>
+      <td class="bgmarron"><a href="http://blog.developpez.com/?blog=18" class="ntdrub">Club</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_004.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_002.gif" alt=""></td>
+      <td class="bgmarron"><a href="http://emploi.developpez.com/" class="ntdrub">Emploi</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_004.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_002.gif" alt=""></td>
+      <td class="bgmarron"><a href="http://blog.developpez.com/" class="ntdrub">Blogs</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_004.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_002.gif" alt=""></td>
+      <td class="bgmarron"><a href="http://www.developpez.tv/" class="ntdrub">&nbsp;&nbsp;TV&nbsp;&nbsp;</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_004.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_003.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://web.developpez.com/" class="ntdrub">Dév.&nbsp;Web</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_003.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://php.developpez.com/" class="ntdrub">PHP</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_003.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://xml.developpez.com/" class="ntdrub">XML</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_003.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://python.developpez.com/" class="ntdrub">Python</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_003.gif" alt=""></td>
+      <td class="bgjaune"><a href="http://general.developpez.com/cours/" class="ntdrub">Autres</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_002.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_004.gif" alt=""></td>
+      <td class="bgvert"><a href="http://jeux.developpez.com/" class="ntdrub">2D-3D-Jeux</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_004.gif" alt=""></td>
+      <td class="bgvert"><a href="http://securite.developpez.com/" class="ntdrub">Sécurité</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_004.gif" alt=""></td>
+      <td class="bgvert"><a href="http://windows.developpez.com/" class="ntdrub">Windows</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg.gif" alt=""></td>
+      <td class="bgbleu"><a href="http://linux.developpez.com/" class="narub">Linux</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd_003.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_004.gif" alt=""></td>
+      <td class="bgvert"><a href="http://hardware.developpez.com/" class="ntdrub">PC</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bd.gif" alt=""></td>
+      <td class="iongl"><img src="mutex_intro_files/bg_004.gif" alt=""></td>
+      <td class="bgvert"><a href="http://mac.developpez.com/" class="ntdrub">Mac</a></td>
+      <td class="iongl"><img src="mutex_intro_files/bed.gif" alt=""></td>
+  </tr>
+   </tbody></table>
+   </td>
+   </tr>
+    <tr>
+      <td class="trbleu">
+      <table class="cachee bleufo" cellpadding="0" cellspacing="0">
+       <tbody><tr>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://www.developpez.net/forums/forumdisplay.php?f=17" class="narub">FORUM&nbsp;LINUX</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://linux.developpez.com/faq/" class="narub">FAQ&nbsp;LINUX</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://linux.developpez.com/cours/" class="narub">TUTORIELS&nbsp;LINUX</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://linux.developpez.com/livres/" class="narub">LIVRES&nbsp;LINUX</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://linux.developpez.tv/" class="narub">LINUX&nbsp;TV</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://unix.developpez.com/" class="narub">UNIX</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://gtk.developpez.com/" class="narub">GTK+</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://qt.developpez.com/" class="narub">Qt</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       <td><img src="mutex_intro_files/btg.gif" alt=""></td>
+       <td class="intbt"><a href="http://apache.developpez.com/" class="narub">APACHE</a></td>
+       <td><img src="mutex_intro_files/btd.gif" alt=""></td>
+       </tr>
+       </tbody></table>
+     </td>
+    </tr>
+    <tr valign="top">
+    <td class="fondart" valign="top">
+    <table class="tbnoir" cellspacing="1" width="100%">
+    <tbody><tr><td class="fondart">
+	<div style="text-align: center;">
+		<table class="cadrearticle" cellpadding="10" cellspacing="0" width="90%">
+		  <tbody><tr>
+				<td style="text-align: left;" align="center">
+	<div style="text-align: center;">
+		<table class="cadrearticle" cellpadding="10" cellspacing="0" width="90%">
+		  <tbody><tr>
+				<td style="text-align: left;" align="center">
+
+
+
+
+
+<h1>PTHREAD_MUTEX</h1><p class="synopsis">
+Section: Manuel du programmeur Linux (3)<br>Updated: 21 juillet 2003<br><a href="http://man.developpez.com/">Index</a>
+</p><br><a class="summaryIndent0" href="#L1">NOM</a>
+<br><a class="summaryIndent0" href="#L2">SYNOPSIS</a>
+<br><a class="summaryIndent0" href="#L3">DESCRIPTION</a>
+<br><a class="summaryIndent0" href="#L4">ANNULATION</a>
+<br><a class="summaryIndent0" href="#L5">FIABILITE PAR RAPPORT AUX SIGNAUX ASYNCHRONES</a>
+<br><a class="summaryIndent0" href="#L6">VALEUR RENVOYÉE</a>
+<br><a class="summaryIndent0" href="#L7">ERREURS</a>
+<br><a class="summaryIndent0" href="#L8">AUTEUR</a>
+<br><a class="summaryIndent0" href="#L9">VOIR AUSSI</a>
+<br><a class="summaryIndent0" href="#L10">EXEMPLE</a>
+<br><a class="summaryIndent0" href="#L11">TRADUCTION</a>
+
+
+<br>
+<h1 class="TitreSection0" id="L1">NOM</h1>
+<div class="paragraph">
+pthread_mutex_init, pthread_mutex_lock, pthread_mutex_trylock,
+pthread_mutex_unlock, pthread_mutex_destroy - opérations sur les mutex
+<br>
+</div>
+<h1 class="TitreSection0" id="L2">SYNOPSIS</h1>
+<div class="paragraph">
+
+<b>#include &lt;<a href="http://man.developpez.com/include/pthread.php">pthread.h</a>&gt;</b>
+
+<br>
+<b>pthread_mutex_t </b><i>fastmutex</i><b> = PTHREAD_MUTEX_INITIALIZER;</b>
+
+<br>
+<b>pthread_mutex_t </b><i>recmutex</i><b> = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;</b>
+
+<br>
+<b>pthread_mutex_t </b><i>errchkmutex</i><b> = PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP;</b>
+
+<br>
+<b>int pthread_mutex_init(pthread_mutex_t *</b><i>mutex</i><b>, const pthread_mutexattr_t *</b><i>mutexattr</i><b>);</b>
+
+<br>
+<b>int pthread_mutex_lock(pthread_mutex_t *</b><i>mutex</i><b>));</b>
+
+<br>
+<b>int pthread_mutex_trylock(pthread_mutex_t *</b><i>mutex</i><b>);</b>
+
+<br>
+<b>int pthread_mutex_unlock(pthread_mutex_t *</b><i>mutex</i><b>);</b>
+
+<br>
+<b>int pthread_mutex_destroy(pthread_mutex_t *</b><i>mutex</i><b>);</b>
+
+<br>
+</div>
+<h1 class="TitreSection0" id="L3">DESCRIPTION</h1>
+<div class="paragraph">
+
+Un mutex est un objet d'exclusion mutuelle (MUTual EXclusion), et est
+très pratique pour protéger des données partagées de modifications concurrentes
+et pour implémenter des sections critiques.
+<br>
+Un mutex peut ête dans deux états : déverrouillé (pris par aucun thread) ou
+verrouillé (appartenant à un
+thread). Un mutex ne peut être pris que par un seul thread à la fois. Un
+thread qui tente de verrouiller un mutex déjà verrouillé est suspendu jusqu'à
+ce que le mutex soit déverrouillé.
+<br>
+<b>pthread_mutex_init</b>
+
+initialise le mutex pointé par
+<i>mutex</i>
+
+selon les attributs de mutex spécifié par
+<i>mutexattr</i>.
+
+Si 
+<i>mutexattr</i>
+
+vaut
+<b>NULL</b>,
+
+les paramètres par défaut sont utilisés.
+<br>
+L'implémentation LinuxThreads ne supporte qu'un seul attribut, le 
+<i>type de mutex</i>,
+
+qui peut être soit ``rapide'', ``récursif'' ou à ``vérification d'erreur''. Le
+type de mutex détermine s'il peut être verrouillé plusieurs fois par le même
+thread. Le type par défaut est ``rapide''. Voir
+<b><a href="http://man.developpez.com/man3/pthread_mutexattr_init.3.php">pthread_mutexattr_init</a></b>(3)
+
+pour plus d'informations sur les attributs de mutex.
+<br>
+Les variables de type 
+<b>pthread_mutex_t</b>
+
+peuvent aussi être initialisées de manière statique, en utilisant les
+constantes
+<b>PTHREAD_MUTEX_INITIALIZER</b>
+
+(pour les mutex rapides),
+<b>PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP</b>
+
+(pour les mutex récursifs), et
+<b>PTHREAD_ERRORCHECK_MUTEX_INITIALIZER_NP</b>
+
+(pour les mutex à vérification d'erreur).
+<br>
+<b>pthread_mutex_lock</b>
+
+verrouille le mutex. Si le mutex est déverrouillé, il devient verrouillé et est
+possédé par le thread appelant&nbsp;; et
+<b>pthread_mutex_lock</b>
+
+rend la main immédiatement. Si le mutex est déjà verrouillé par un autre thread,
+<b>pthread_mutex_lock</b>
+
+suspend le thread appelant jusqu'à ce que le mutex soit déverrouillé.
+<br>
+Si le mutex est déjà verrouillé par le thread appelant, le comportement de
+<b>pthread_mutex_lock</b>
+
+dépend du type de mutex. Si ce dernier est de type ``rapide'', le thread
+appelant est suspendu jusqu'à ce que le mutex soit déverrouillé, donc plaçant
+le thread appelant en situation de blocage définitif. Si le mutex est de type ``à
+vérification d'erreur'',
+<b>pthread_mutex_lock</b>
+
+rend la main immédiatement avec le code d'erreur
+<b>EDEADLK</b>.
+
+Si le mutex est de type ``récursif'',
+<b>pthread_mutex_lock</b>
+
+rend la main immédiatement avec un code de retour indiquant le succès,
+enregistrant le nombre de fois où le thread appelant a verrouillé le mutex. Un
+nombre égal d'appel à
+<b>pthread_mutex_unlock</b>
+
+doit être réalisé avant que le mutex retourne à l'état déverrouillé.
+<br>
+<b>pthread_mutex_trylock</b>
+
+se comporte de la même manière que
+<b>pthread_mutex_lock</b>,
+
+excepté qu'elle ne bloque pas le thread appelant si le mutex est déjà
+verrouillé par un autre thread (ou par le thread appelant dans le cas d'un
+mutex ``rapide''). Au contraire,
+<b>pthread_mutex_trylock</b>
+
+rend la main immédiatement avec le code d'erreur
+<b>EBUSY</b>.
+
+<br>
+<b>pthread_mutex_unlock</b>
+
+déverrouille le mutex. Celui-ci est supposé verrouillé, et ce par le thread
+courant en entrant dans
+<b>pthread_mutex_unlock</b>.
+
+Si le mutex est de type ``rapide'',
+<b>pthread_mutex_unlock</b>
+
+le réinitialise toujours à l'état déverrouillé. S'il est de type ``récursif'',
+son compteur de verrouillage est décrémenté (nombre d'opérations
+<b>pthread_mutex_lock</b>
+
+réalisées sur le mutex par le thread appelant), et déverrouillé seulement quand
+ce compteur atteint 0.
+<br>
+Sur les mutex ``vérification d'erreur'', 
+<b>pthread_mutex_unlock</b>
+
+vérifie lors de l'exécution que le mutex est verrouillé en entrant, et qu'il
+est verrouillé par le même thread que celui appelant
+<b>pthread_mutex_unlock</b>.
+
+Si ces conditions ne sont pas réunies, un code d'erreur est renvoyé et le mutex
+n'est pas modifié. Les mutex ``rapide'' et ``récursif'' ne réalisent pas de
+tels tests, permettant à un mutex verrouillé d'être déverrouillé par un thread
+autre que celui l'ayant verrouillé. Ce comportement n'est pas portable et l'on
+ne doit pas compter dessus.
+<br>
+<b>pthread_mutex_destroy</b>
+
+détruit un mutex, libérant les ressources qu'il détient. Le mutex doit être
+déverrouillé. Dans l'implémentation LinuxThreads des threads POSIX, aucune
+ressource ne peut être associé à un mutex, aussi
+<b>pthread_mutex_destroy</b>
+
+ne fait en fait rien si ce n'est vérifier que le mutex n'est pas verrouillé.
+<br>
+</div>
+<h1 class="TitreSection0" id="L4">ANNULATION</h1>
+<div class="paragraph">
+
+Aucune des primitives relatives aux mutex n'est un point d'annulation, ni même
+<b>pthread_mutex_lock</b>,
+
+malgré le fait qu'il peut suspendre l'exécution du thread pour une longue
+durée. De cette manière, le statut des mutex aux points d'annulation est
+prévisible, permettant aux gestionnaires d'annulation de déverrouiller
+précisément ces mutex qui nécessitent d'être déverrouillés avant que
+l'exécution du thread ne s'arrête définitivement. Aussi, les threads
+travaillant en mode d'annulation retardée ne doivent-t'ils jamais verrouiller
+un mutex pour de longues périodes de temps.
+<br>
+</div>
+<h1 class="TitreSection0" id="L5">FIABILITE PAR RAPPORT AUX SIGNAUX ASYNCHRONES</h1>
+<div class="paragraph">
+
+Les fonctions relatives aux mutex ne sont pas fiables par rapport aux signaux
+asynchrones et ne doivent donc pas être utilisées dans des gestionnaires de
+signaux. En particulier,
+appeler
+<b>pthread_mutex_lock</b>
+
+ou 
+<b>pthread_mutex_unlock</b>
+
+dans un gestionnaire de signal peut placer le thread appelant dans une
+situation de blocage définitif.
+<br>
+</div>
+<h1 class="TitreSection0" id="L6">VALEUR RENVOYÉE</h1>
+<div class="paragraph">
+
+<br>
+<b>pthread_mutex_init</b>
+
+retourne toujours 0. Les autres fonctions renvoient 0 en cas succès et un code
+d'erreur non nul en cas de problème.
+<br>
+</div>
+<h1 class="TitreSection0" id="L7">ERREURS</h1>
+<div class="paragraph">
+
+<br>
+La fonction
+<b>pthread_mutex_lock</b>
+
+renvoie l'un des codes d'erreur suivants en cas de problème:
+<dl compact="compact"><dt></dt><dd>
+<dl compact="compact">
+<dt><b>EINVAL</b>
+
+</dt><dd>
+le mutex n'a pas été initialisé.
+<br>
+</dd><dt><b>EDEADLK</b>
+
+</dt><dd>
+le mutex est déjà verrouillé par un thread autre que l'appellant (mutex à
+vérification d'erreur seulement).
+</dd></dl>
+</dd></dl>
+
+<br>
+La fonction
+<b>pthread_mutex_trylock</b>
+
+renvoie l'un des codes d'erreur suivants en cas de problème&nbsp;:
+<dl compact="compact"><dt></dt><dd>
+<dl compact="compact">
+<dt><b>EBUSY</b>
+
+</dt><dd>
+le mutex ne peut être verrouillé car il l'est déjà.
+<br>
+</dd><dt><b>EINVAL</b>
+
+</dt><dd>
+le mutex n'a pas été initialisé.
+</dd></dl>
+</dd></dl>
+
+<br>
+La fonction
+<b>pthread_mutex_unlock</b>
+
+renvoie le code d'erreur suivant en cas de problème&nbsp;:
+<dl compact="compact"><dt></dt><dd>
+<dl compact="compact">
+<dt><b>EINVAL</b>
+
+</dt><dd>
+le mutex n'a pas été initialisé.
+<br>
+</dd><dt><b>EPERM</b>
+
+</dt><dd>
+le thread appelant ne possède pas le mutex (mutex à vérification d'erreur
+seulement).
+</dd></dl>
+</dd></dl>
+
+<br>
+La fonction
+<b>pthread_mutex_destroy</b>
+
+renvoie le code d'erreur suivant en cas de problème&nbsp;:
+<dl compact="compact"><dt></dt><dd>
+<dl compact="compact">
+<dt><b>EBUSY</b>
+
+</dt><dd>
+le mutex est déjà verrouillé.
+</dd></dl>
+</dd></dl>
+
+<br>
+</div>
+<h1 class="TitreSection0" id="L8">AUTEUR</h1>
+<div class="paragraph">
+
+Xavier Leroy &lt;<a href="mailto:Xavier.Leroy@inria.fr">Xavier.Leroy@inria.fr</a>&gt;
+<br>
+</div>
+<h1 class="TitreSection0" id="L9">VOIR AUSSI</h1>
+<div class="paragraph">
+
+<b><a href="http://man.developpez.com/man3/pthread_mutexattr_init.3.php">pthread_mutexattr_init</a></b>(3),
+
+<b><a href="http://man.developpez.com/man3/pthread_mutexattr_setkind_np.3.php">pthread_mutexattr_setkind_np</a></b>(3),
+
+<b><a href="http://man.developpez.com/man3/pthread_cancel.3.php">pthread_cancel</a></b>(3).
+
+<br>
+</div>
+<h1 class="TitreSection0" id="L10">EXEMPLE</h1>
+<div class="paragraph">
+
+<br>
+Une variable globale partagée
+<i>x</i>
+
+peut être protégée par un mutex comme suit&nbsp;:
+<br>
+<dl compact="compact"><dt></dt><dd>
+<b>
+</b><pre>
+int x;
+pthread_mutex_t mut = PTHREAD_MUTEX_INITIALIZER;
+
+</pre></dd></dl>
+
+
+<br>
+Tous les accès et modifications de
+<i>x</i>
+
+doivent être entourés de paires d'appels à
+<b>pthread_mutex_lock</b>
+
+et 
+<b>pthread_mutex_unlock</b>
+
+comme suit&nbsp;:
+<br>
+<dl compact="compact"><dt></dt><dd>
+<b>
+</b><pre>
+pthread_mutex_lock(&amp;mut);
+/* agir sur x */
+pthread_mutex_unlock(&amp;mut);
+
+</pre></dd></dl>
+
+
+</div>
+<h1 class="TitreSection0" id="L11">TRADUCTION</h1>
+<div class="paragraph">
+
+Thierry Vignaud &lt;<i><a href="mailto:tvignaud@mandrakesoft.com">tvignaud@mandrakesoft.com</a></i>&gt;, 2000
+
+<br>
+
+Christophe Blaess, 2003.
+<br>
+
+
+
+
+
+
+
+
+								</div></td>
+							</tr>
+						</tbody></table></div>
+								</td>
+							</tr>
+						</tbody></table></div>
+       
+</td></tr>
+       <tr>
+       <td class="trbleu cachee">
+         Responsables bénévoles de la rubrique <b>Linux Professionnel</b> :         <a href="http://www.developpez.net/forums/profile.php?mode=viewprofile&amp;u=2587" class="narub" onclick="window.open(this.href); return false;">Olivier Van Hoof</a>         et <a href="http://www.developpez.net/forums/profile.php?mode=viewprofile&amp;u=29" class="narub" onclick="window.open(this.href); return false;">Pierre Chauvin</a>         - Contacter par EMail :
+          <script type="text/javascript">
+          <!--
+          Ch=new Array(4);Res=new Array(4);
+          Ch[0]='le_club_des_developeur';Ch[1]='ÙÆÈÏàä';
+          Ch[2]='¬×ÄÇÍØÖÈÓÓ';Ch[3]='ÐÊÕÈØäÒÏÉß¡ÂÓÒ';
+          for(y=1;y<4;y++){Res[y]="";for(x=0;x<Ch[y].length;x++)
+          Res[y]+=String.fromCharCode(Ch[y].charCodeAt(x)-Ch[0].charCodeAt(x));}
+          document.write('<a href="'+Res[1]+':linux'+Res[2]+'-'+Res[3]+'" class="narub">linux'+Res[2]+'-'+Res[3]+'</a>');
+          //-->
+          </script><a href="mailto:linux@redaction-developpez.com" class="narub">linux@redaction-developpez.com</a></td></tr>
+
+     </tbody></table>
+    </td>
+   </tr>
+   </tbody></table>
+   </td>
+  </tr>
+  <tr>
+    <td>
+      <table class="cachee" cellpadding="4" width="100%">
+      <tbody><tr>
+        <td class="titrepied" align="center">
+          Vos questions techniques : <b><a href="http://www.developpez.net/forums/forumdisplay.php?f=17" onclick="window.open(this.href); return false;">forum d'entraide Linux Professionnel</a></b> - Publiez vos articles, tutoriels et cours<br>
+          et rejoignez-nous dans l'équipe de rédaction du club d'entraide des développeurs francophones <br> <a href="http://club.developpez.com/contacts/">Nous contacter</a>
+          - Copyright © 2000-2008 www.developpez.com -           <a href="http://www.developpez.com/legal/">Legal informations</a>.        </td>
+    <td align="center">
+      <script type="text/javascript">
+      <!--
+      xtn2 = "14";
+      //-->
+      </script>
+    
+<br>
+<script type="text/javascript"> 
+<!-- 
+xtnv = document;
+xtsd = "http://logc15"; 
+xtsite = "203548"; 
+xtpage = "";
+xtdmc = "";
+xtprm = "";
+//--> 
+</script> 
+<script type="text/javascript" src="mutex_intro_files/xtexpert.js"></script><img style="display: none;" src="mutex_intro_files/hit.xiti" height="1" width="1"> 
+<noscript> 
+<div>
+<img width="1" alt="" height="1" src="http://logc15.xiti.com/hit.xiti?s=203548&amp;p=&amp;" /> 
+</div>
+</noscript>
+                     
+        </td>       
+      </tr>
+      </tbody></table>
+    </td>
+  </tr>
+  </tbody></table>
+</body></html>
