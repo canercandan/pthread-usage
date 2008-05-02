@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:31:32 2008 caner candan
-** Last update Thu May  1 10:33:15 2008 caner candan
+** Last update Thu May  1 21:24:26 2008 caner candan
 */
 
 #include <pthread.h>
@@ -16,7 +16,7 @@ int	xpthread_mutex_trylock(void *mutex)
 {
   int	rc;
 
-  if ((rc = pthread_mutex_trylock((pthread_mutex_t *) mutex)) != 0)
+  if ((rc = pthread_mutex_trylock((pthread_mutex_t *) mutex)) < 0)
     perror("pthread_mutex_trylock");
   return (rc);
 }

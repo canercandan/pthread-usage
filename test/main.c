@@ -5,13 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 09:21:52 2008 caner candan
-** Last update Thu May  1 13:24:50 2008 caner candan
+** Last update Thu May  1 21:28:59 2008 caner candan
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <pthread.h>
 #include "philo1.h"
 #include "x.h"
 
@@ -30,15 +29,16 @@ static void	*do_store(void *mem)
 
   debug("do_store()", 1);
   m = mem;
+  m->qte = 0;
   while (1)
     {
-      pthread_mutex_trylock((pthread_mutex_t *) &m->mutex);
+      xpthread_mutex_trylock(&m->mutex);
       if (m->qte <= 0)
 	{
 	  m->qte = 20;
 	  printf("Stock the store.\n");
 	}
-      pthread_mutex_unlock((pthread_mutex_t *) &m->mutex);
+      xpthread_mutex_unlock(&m->mutex);
     }
   return (NULL);
 }
@@ -52,12 +52,12 @@ static void	*do_clients(void *mem)
   m = mem;
   while (1)
     {
-      pthread_mutex_trylock((pthread_mutex_t *) &m->mutex);
+      xpthread_mutex_trylock(&m->mutex);
       val = get_random(6);
       sleep(get_random(3));
       m->qte -= val;
       printf("One client take %d, stock = %d.\n", val, m->qte);
-      pthread_mutex_unlock((pthread_mutex_t *) &m->mutex);
+      xpthread_mutex_unlock(&m->mutex);
     }
   return (NULL);
 }
@@ -69,19 +69,20 @@ int	main(void)
   int	i;
 
   debug("main()", 0);
-  mem.mutex = PTHREAD_MUTEX_INITIALIZER;
-  if (!(rc = pthread_create((pthread_t *) &mem.stock, NULL, do_store, &mem)))
+  xpthread_mutex_init(&mem.mutex, NULL);
+  if (!(rc = xpthread_create(&mem.stock, NULL, do_store, &mem)))
     {
       printf("Store has been created.\n");
       for (i = 0; i < NB_CLIENTS; i++)
 	{
-	  pthread_create((pthread_t *) &mem.client[i], NULL,
+	  xpthread_create(&mem.client[i], NULL,
 			 do_clients, &mem);
 	  printf("Client %d has been created.\n", i);
 	}
     }
   for (i = 0; i < NB_CLIENTS; i++)
-    pthread_join(mem.client[i], NULL);
-  pthread_join(mem.stock, NULL);
+    xpthread_join(mem.client[i], NULL);
+  xpthread_join(mem.stock, NULL);
+  xpthread_mutex_destroy(&mem.mutex);
   return (0);
 }
