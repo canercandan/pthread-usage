@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:16:16 2008 caner candan
-** Last update Fri May  2 09:36:07 2008 caner candan
+** Last update Fri May  2 11:15:17 2008 caner candan
 */
 
 #ifndef __X_H__
@@ -31,6 +31,7 @@ int	xpthread_mutex_unlock(void *mutex);
 ** Condition's functions of pthread
 */
 int	xpthread_cond_init(void *cond, const void *attr);
+int	xpthread_cond_destroy(void *cond);
 int	xpthread_cond_wait(void *cond, void *mutex);
 int	xpthread_cond_signal(void *cond);
 int	xpthread_cond_broadcast(void *cond);

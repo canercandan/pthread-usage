@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 09:21:52 2008 caner candan
-** Last update Thu May  1 21:28:59 2008 caner candan
+** Last update Fri May  2 13:29:57 2008 caner candan
 */
 
 #include <unistd.h>
@@ -32,13 +32,12 @@ static void	*do_store(void *mem)
   m->qte = 0;
   while (1)
     {
-      xpthread_mutex_trylock(&m->mutex);
-      if (m->qte <= 0)
-	{
-	  m->qte = 20;
-	  printf("Stock the store.\n");
-	}
-      xpthread_mutex_unlock(&m->mutex);
+      xpthread_mutex_trylock(&m->mutex_stock);
+      xpthread_cond_wait(&m->cond_stock, &m->mutex_stock);
+      m->qte = 20;
+      printf("Stock the store.\n");
+      xpthread_cond_signal(&m->cond_clients);
+      xpthread_mutex_unlock(&m->mutex_stock);
     }
   return (NULL);
 }
@@ -52,12 +51,17 @@ static void	*do_clients(void *mem)
   m = mem;
   while (1)
     {
-      xpthread_mutex_trylock(&m->mutex);
       val = get_random(6);
       sleep(get_random(3));
+      xpthread_mutex_trylock(&m->mutex_stock);
+      if (val > m->qte)
+	{
+	  xpthread_cond_signal(&m->cond_stock);
+	  xpthread_cond_wait(&m->cond_clients, &m->mutex_stock);
+	}
       m->qte -= val;
       printf("One client take %d, stock = %d.\n", val, m->qte);
-      xpthread_mutex_unlock(&m->mutex);
+      xpthread_mutex_unlock(&m->mutex_stock);
     }
   return (NULL);
 }
@@ -69,7 +73,9 @@ int	main(void)
   int	i;
 
   debug("main()", 0);
-  xpthread_mutex_init(&mem.mutex, NULL);
+  xpthread_cond_init(&mem.cond_clients, NULL);
+  xpthread_cond_init(&mem.cond_stock, NULL);
+  xpthread_mutex_init(&mem.mutex_stock, NULL);
   if (!(rc = xpthread_create(&mem.stock, NULL, do_store, &mem)))
     {
       printf("Store has been created.\n");
@@ -83,6 +89,8 @@ int	main(void)
   for (i = 0; i < NB_CLIENTS; i++)
     xpthread_join(mem.client[i], NULL);
   xpthread_join(mem.stock, NULL);
-  xpthread_mutex_destroy(&mem.mutex);
+  xpthread_mutex_destroy(&mem.mutex_stock);
+  xpthread_cond_destroy(&mem.cond_stock);
+  xpthread_cond_destroy(&mem.cond_clients);
   return (0);
 }

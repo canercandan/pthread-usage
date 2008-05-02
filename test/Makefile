@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Thu May  1 10:36:00 2008 caner candan
-## Last update Thu May  1 11:25:17 2008 caner candan
+## Last update Fri May  2 11:17:11 2008 caner candan
 ##
 
 NAME		=	philo1
@@ -16,7 +16,12 @@ SRCS_X		=	xpthread_create.c		\
 			xpthread_mutex_destroy.c	\
 			xpthread_mutex_init.c		\
 			xpthread_mutex_trylock.c	\
-			xpthread_mutex_unlock.c
+			xpthread_mutex_unlock.c		\
+			xpthread_cond_init.c		\
+			xpthread_cond_destroy.c		\
+			xpthread_cond_wait.c		\
+			xpthread_cond_signal.c		\
+			xpthread_cond_broadcast.c
 
 SRCS		=	main.c		\
 			debug.c
