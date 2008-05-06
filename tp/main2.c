@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 07:39:37 2008 caner candan
-** Last update Tue May  6 09:01:09 2008 caner candan
+** Last update Tue May  6 14:56:28 2008 caner candan
 */
 
 #include <pthread.h>
@@ -26,13 +26,13 @@ static void	*on_way(void *tp)
       if (i == CRITIC_MIN)
 	{
 	  pthread_mutex_lock(PTHREAD_MUTEX(&TP(tp)->mutex_bridge));
+	  pthread_cond_signal(PTHREAD_COND(&TP(tp)->cond_bridge));
 	  pthread_cond_wait(PTHREAD_COND(&TP(tp)->cond_train),
 			    PTHREAD_MUTEX(&TP(tp)->mutex_bridge));
-	  pthread_cond_signal(PTHREAD_COND(&TP(tp)->cond_bridge));
 	}
       if (i == CRITIC_MAX)
 	{
-	  pthread_signal(PTHREAD_COND(&TP(tp)->cond_train));
+	  pthread_cond_signal(PTHREAD_COND(&TP(tp)->cond_train));
 	  pthread_mutex_unlock(PTHREAD_MUTEX(&TP(tp)->mutex_bridge));
 	}
       strcpy(buf, WAY_FMT);
