@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:02:27 2008 caner candan
-** Last update Tue May  6 15:22:55 2008 caner candan
+** Last update Thu May  8 14:54:39 2008 caner candan
 */
 
 #ifndef __X_H__
@@ -28,7 +28,8 @@
 int	xpthread_create(void *thread, const void *attr,
 			void *(*start_routine)(void *), void *arg);
 void	xpthread_exit(void *value_ptr);
-int	xpthread_join(void *pthread, void **value_ptr);
+int	xpthread_join(void *thread, void **value_ptr);
+int	xpthread_cancel(void *thread);
 
 /*
 ** Mutex's functions of pthread

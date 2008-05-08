@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Tue May  6 15:44:02 2008 caner candan
+## Last update Thu May  8 15:09:03 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -23,6 +23,7 @@ BIN		=	$(PATH_BIN)$(NAME_APP)
 SRCS_X		=	$(PATH_X)xpthread_create.c		\
 			$(PATH_X)xpthread_exit.c		\
 			$(PATH_X)xpthread_join.c		\
+			$(PATH_X)xpthread_cancel.c		\
 			$(PATH_X)xpthread_mutex_destroy.c	\
 			$(PATH_X)xpthread_mutex_init.c		\
 			$(PATH_X)xpthread_mutex_lock.c		\
@@ -33,7 +34,11 @@ SRCS_X		=	$(PATH_X)xpthread_create.c		\
 			$(PATH_X)xpthread_cond_signal.c		\
 			$(PATH_X)xpthread_cond_broadcast.c
 
-SRCS		=	$(PATH_SRC)main.c
+SRCS		=	$(PATH_SRC)main.c		\
+			$(PATH_SRC)init_signal.c	\
+			$(PATH_SRC)init_actors.c	\
+			$(PATH_SRC)launch_history.c	\
+			$(PATH_SRC)destroy_actors.c
 
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X)

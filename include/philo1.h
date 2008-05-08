@@ -5,21 +5,22 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Tue May  6 15:48:15 2008 caner candan
+** Last update Thu May  8 17:52:44 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
 # define __PHILO1_H__
 
 /*
-** TP's defines
+** Infos' defines
 */
-# define NB_TRAINS	6
-# define TRAIN		'#'
-# define WAY_FMT	"=====|----|=====\n"
-# define WAY_SIZE	18
-# define CRITIC_MIN	6
-# define CRITIC_MAX	10
+# define NB_PHILOS	7
+# define NB_STICKS	7
+
+/*
+** Terminal's messages
+*/
+# define PWR_OFF_MESG	"\nPhilosOFF\n"
 
 /*
 ** Null's define
@@ -31,18 +32,43 @@
 /*
 ** Macro useful
 */
-# define TP(data)		((t_tp *) (data))
+# define INFO(data)	((t_info *) (data))
+# define THR(data)	((t_thr *) (data))
 
 /*
-** TP's structure
+** Threads' structure
 */
-typedef struct	s_tp
+typedef struct	s_thr
 {
-  void		*train[NB_TRAINS];
-  void		*bridge;
-  void		*mutex_bridge;
-  void		*cond_train;
-  void		*cond_bridge;
-}		t_tp;
+  void		*thread;
+  void		*mutex;
+  void		*cond;
+}		t_thr;
+
+/*
+** Infos' structure
+*/
+typedef struct	s_info
+{
+  void		*philo[NB_PHILOS];
+  void		*sticks[NB_STICKS];
+  void		*cond_philo;
+  void		*cond_sticks;
+  t_thr		eat;
+  t_thr		sleep;
+  t_thr		think;
+}		t_info;
+
+/*
+** Initiations' functions
+*/
+void	init_actors(t_info *info);
+void	init_signal(t_info *info);
+
+/*
+** Useful's functions
+*/
+void	launch_history(t_info *info);
+void	destroy_actors(t_info *info);
 
 #endif /* __PHILO1_H__ */
