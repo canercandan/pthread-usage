@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 14:39:37 2008 caner candan
-** Last update Thu May  8 17:58:40 2008 caner candan
+** Last update Fri May  9 16:24:57 2008 caner candan
 */
 
 #include "philo1.h"
@@ -22,7 +22,7 @@ static void	launch_character(void **character, int limit)
 void	launch_history(t_info *info)
 {
   launch_character(info->philo, NB_PHILOS);
-  launch_character(info->sticks, NB_STICKS);
+  launch_character(info->stick, NB_STICKS);
   xpthread_join(info->eat.thread, NULL);
   xpthread_join(info->sleep.thread, NULL);
   xpthread_join(info->think.thread, NULL);

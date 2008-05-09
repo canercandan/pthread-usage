@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 14:51:08 2008 caner candan
-** Last update Thu May  8 17:59:38 2008 caner candan
+** Last update Fri May  9 16:25:09 2008 caner candan
 */
 
 #include "philo1.h"
@@ -32,5 +32,5 @@ void	destroy_actors(t_info *info)
   destroy_elm(&(info->sleep));
   destroy_elm(&(info->think));
   destroy_character(info->philo, NB_PHILOS);
-  destroy_character(info->sticks, NB_STICKS);
+  destroy_character(info->stick, NB_STICKS);
 }

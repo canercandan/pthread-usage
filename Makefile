@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Thu May  8 15:09:03 2008 caner candan
+## Last update Fri May  9 16:33:24 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -38,7 +38,9 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)init_signal.c	\
 			$(PATH_SRC)init_actors.c	\
 			$(PATH_SRC)launch_history.c	\
-			$(PATH_SRC)destroy_actors.c
+			$(PATH_SRC)destroy_actors.c	\
+			$(PATH_SRC)philo_running.c	\
+			$(PATH_SRC)stick_running.c
 
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X)

@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Thu May  8 17:52:44 2008 caner candan
+** Last update Fri May  9 16:34:30 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -51,7 +51,7 @@ typedef struct	s_thr
 typedef struct	s_info
 {
   void		*philo[NB_PHILOS];
-  void		*sticks[NB_STICKS];
+  void		*stick[NB_STICKS];
   void		*cond_philo;
   void		*cond_sticks;
   t_thr		eat;
@@ -70,5 +70,11 @@ void	init_signal(t_info *info);
 */
 void	launch_history(t_info *info);
 void	destroy_actors(t_info *info);
+
+/*
+** Running's functions
+*/
+void	*philo_running(void *info);
+void	*stick_running(void *info);
 
 #endif /* __PHILO1_H__ */
