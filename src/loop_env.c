@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 19:26:49 2008 caner candan
+** Last update Sat May 10 19:39:26 2008 caner candan
 */
 
 #include <SDL.h>
@@ -17,11 +17,11 @@ int	gl_hp[NB];
 static t_pos	pos[] = {
   {0, 0, 0, 17},
   {1, 0, 13, 13},
-  {2, 0, -13, 13},
-  {3, 8, 17, 0},
-  {4, 3, -17, 0},
-  {5, 9, -13, -13},
-  {6, 9, 13, -13},
+  {2, 8, 17, 0},
+  {3, 9, 13, -13},
+  {4, 9, -13, -13},
+  {5, 3, -17, 0},
+  {6, 0, -13, 13},
   {-1, 0, 0, 0}
 };
 
