@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sat May 10 22:58:20 2008 caner candan
+** Last update Sat May 10 23:00:08 2008 caner candan
 */
 
 #include <pthread.h>
@@ -34,7 +34,7 @@ static void	power_off(int signal)
   i = 0;
   while (i < INFO(signal_data)->nb_sticks)
     {
-      xpthread_mutex_destroy(PTHREAD_MUTEX(gl_stick)[i]);
+      xpthread_mutex_destroy(&PTHREAD_MUTEX(gl_stick)[i]);
       i++;
     }
   free(gl_stick);
