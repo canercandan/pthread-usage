@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 20:58:40 2008 florent hochwelker
+** Last update Sat May 10 21:24:10 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -97,6 +97,16 @@ typedef struct	s_gfx
   void		*character;
   void		*status;
 }		t_gfx;
+
+/*
+** Infos' structure
+*/
+typedef struct	s_info
+{
+  int		nb_philos;
+  int		nb_sticks;
+  t_gfx		gfx;
+}		t_info;
 
 /*
 ** Position structure

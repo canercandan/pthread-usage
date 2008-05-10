@@ -5,11 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:11:58 2008 caner candan
-** Last update Tue May  6 15:05:24 2008 caner candan
+** Last update Sat May 10 21:15:17 2008 caner candan
 */
 
 #include <pthread.h>
 #include <stdio.h>
+#include "my.h"
 #include "x.h"
 
 int	xpthread_create(void *thread, const void *attr,
@@ -19,6 +20,9 @@ int	xpthread_create(void *thread, const void *attr,
 
   if ((rc = pthread_create(PTHREAD(thread), PTHREAD_ATTR(attr),
 			   start_routine, arg)) < 0)
-    perror("pthread_create");
+    {
+      my_putstr("pthread_create");
+      exit(-1);
+    }
   return (rc);
 }
