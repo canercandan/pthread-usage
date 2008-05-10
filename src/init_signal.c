@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sat May 10 11:25:45 2008 caner candan
+** Last update Sat May 10 12:16:17 2008 caner candan
 */
 
 #include <signal.h>
@@ -19,7 +19,6 @@ static void	*signal_data = NULL;
 static void	power_off(int signal)
 {
   (void) signal;
-/*   destroy_actors(signal_data); */
   destroy_screen(signal_data);
   write(1, PWR_OFF_MESG, strlen(PWR_OFF_MESG));
   exit(0);
