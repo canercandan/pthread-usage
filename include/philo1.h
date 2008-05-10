@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 18:50:29 2008 caner candan
+** Last update Sat May 10 19:18:55 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -108,6 +108,17 @@ typedef struct	s_gfx
   void		*character;
   void		*status;
 }		t_gfx;
+
+/*
+** Position structure
+*/
+typedef struct	s_pos
+{
+  int		id;
+  int		direction;
+  int		x;
+  int		y;
+}		t_pos;
 
 /*
 ** Init signal function
