@@ -5,7 +5,7 @@
 ** Login   <toumi_m@epitech.net>
 ** 
 ** Started on  Thu Apr 10 16:32:19 2008 majdi toumi
-** Last update Thu May  1 15:00:48 2008 caner candan
+** Last update Sat May 10 20:40:48 2008 caner candan
 */
 
 #include <stdlib.h>
@@ -20,7 +20,7 @@ void	*xmalloc(int size)
   if (p == NULL)
     {
       perror("xmalloc: not enough memory\n");
-      exit(EXIT_FAIL);
+      exit(-1);
     }
   return (p);
 }
