@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 15:31:04 2008 florent hochwelker
+** Last update Sat May 10 17:02:08 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -14,6 +14,8 @@
 #include "philo1.h"
 
 static pthread_mutex_t	stick[NB];
+int			status[NB];
+int			hp[NB];
 
 static int		get_id(int thread_id, int direction)
 {
@@ -25,44 +27,22 @@ static int		get_id(int thread_id, int direction)
   return (thread_id);
 }
 
-static void		print_status(int id, int status, int hp)
+static void		change_status(int id)
 {
-  if (id == 0)
-    my_putstr("----\n");
-  my_putchar(id + '0');
-  my_putstr(": mon etat est ");
-  if (status == THINK)
-    my_putstr("\"reflechi\"");
-  else if (status == EAT)
-    my_putstr("\"mange\"");
-  else
-    my_putstr("\"dort\"");
-  my_putstr(", j'ai ");
-  my_putnbr(hp);
-  my_putstr(" hp\n");
-}
-
-static void		change_status(int *status, int id, int *hp)
-{
-  if (*status == THINK)
+  if (status[id] == EAT)
     {
-      if (pthread_mutex_trylock(stick + get_id(id, LEFT)) == 0)
-	(*status)++;
-    }
-  else if (*status == EAT)
-    {
-      *hp += 1;
+      hp[id] += 1;
       pthread_mutex_unlock(stick + get_id(id, RIGHT));
       pthread_mutex_unlock(stick + get_id(id, LEFT));
-      *status = 0;
+      status[id] = 0;
     }
   else
     {
-      if (pthread_mutex_trylock(stick + get_id(id, RIGHT)) == 0)
+      if (pthread_mutex_lock(stick + get_id(id, RIGHT)) == 0)
 	{
-	  (*status)++;
-	  if (pthread_mutex_trylock(stick + get_id(id, LEFT)) == 0)
-	    (*status)++;
+	  status[id]++;
+	  if (pthread_mutex_lock(stick + get_id(id, LEFT)) == 0)
+	    status[id]++;
 	}
     }
 }
@@ -71,18 +51,14 @@ static void		*start_routine(void *info)
 {
   int			id;
   int			sdl_on;
-  int			status;
-  int			hp;
 
   id = (long)info & 0xff;
   sdl_on = (long)info & 0xff00;
-  status = 0;
-  hp = 1;
+  hp[id] = 0;
+  status[id] = 0;
   while (1)
     {
-      change_status(&status, id, &hp);
-      if (!sdl_on)
-	print_status(id, status, hp);
+      change_status(id);
       sleep(1);
     }
   pthread_exit(NULL);
@@ -114,6 +90,13 @@ int		create_thread(int sdl_on)
 	  exit(-1);
 	}
       i++;
+    }
+  while (1)
+    {
+      i = 0;
+      while (i < NB)
+	print_status(i++);
+      sleep(1);
     }
   pthread_exit(NULL);
 }

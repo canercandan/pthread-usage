@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 17:12:30 2008 caner candan
+** Last update Sat May 10 17:28:06 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -79,6 +79,13 @@
 ** Thread
 */
 int	create_thread();
+
+/*
+** Tu fait chier avec tes commentaires ...
+*/
+void	print_status(int id);
+extern int	status[NB];
+extern int	hp[NB];
 
 /*
 ** GFX's structure
