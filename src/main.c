@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 13:40:50 2008 caner candan
+** Last update Sat May 10 15:33:32 2008 florent hochwelker
 */
 
 #include "philo1.h"
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 	return (-1);
       return (0);
     }
-  create_thread();
+  else
+    create_thread(0);
   return (0);
 }

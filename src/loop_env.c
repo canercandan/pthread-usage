@@ -5,18 +5,17 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 15:22:45 2008 caner candan
+** Last update Sat May 10 15:33:17 2008 florent hochwelker
 */
 
 #include <SDL.h>
 #include "philo1.h"
 
-int	loop_env(t_gfx *gfx)
+int		loop_env(t_gfx *gfx)
 {
   static int	i = 0;
   int	stat[NB];
 
-  (void) stat;
   if (catch_keys() < 0)
     return (-1);
   set_character(gfx, i % 9, 1, 1);
