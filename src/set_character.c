@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:25:01 2008 caner candan
-** Last update Sat May 10 13:18:19 2008 caner candan
+** Last update Sat May 10 15:26:23 2008 caner candan
 */
 
 #include <SDL.h>
@@ -19,14 +19,14 @@ void		set_character(t_gfx *gfx, int nbr, int x, int y)
   src.x = CHARACTER_X * GET_CHARACTER_X(nbr);
   src.y = CHARACTER_Y * GET_CHARACTER_Y(nbr);
   src.w = CHARACTER_X;
-  src.y = CHARACTER_Y;
-  dst.x = x;
-  dst.y = y;
+  src.h = CHARACTER_Y;
+  dst.x = CHARACTER_X * x;
+  dst.y = CHARACTER_Y * y;
   dst.w = CHARACTER_X;
   dst.h = CHARACTER_Y;
   SDL_FillRect(gfx->screen, &dst,
-	       SDL_MapRGB(SDL_SF(gfx->screen)->format, 0, 0, 0));
-  SDL_SetColorKey(gfx->image, SDL_SRCCOLORKEY,
-		  SDL_MapRGB(SDL_SF(gfx->image)->format, 255, 255, 255));
-  SDL_BlitSurface(gfx->image, &src, gfx->screen, &dst);
+	       SDL_MapRGB(SDL_SF(gfx->character)->format, 0, 0, 0));
+  SDL_SetColorKey(gfx->character, SDL_SRCCOLORKEY,
+		  SDL_MapRGB(SDL_SF(gfx->character)->format, 255, 255, 255));
+  SDL_BlitSurface(gfx->character, &src, gfx->screen, &dst);
 }

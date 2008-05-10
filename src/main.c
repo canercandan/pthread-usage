@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 13:19:03 2008 caner candan
+** Last update Sat May 10 13:40:50 2008 caner candan
 */
 
 #include "philo1.h"
@@ -18,7 +18,8 @@ static int	init_sdl()
   if (init_screen(&gfx) < 0)
     return (-1);
   init_signal(&gfx);
-  create_character(&gfx);
+  if (create_character(&gfx))
+    return (-1);
   while (53)
     if (loop_env(&gfx) < 0)
       break;
@@ -30,7 +31,11 @@ static int	init_sdl()
 int	main(int ac, char **av)
 {
   if (ac == 2 && !my_strcmp(av[1], "-g"))
-    init_sdl();
+    {
+      if (init_sdl() < 0)
+	return (-1);
+      return (0);
+    }
   create_thread();
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 13:19:13 2008 caner candan
+** Last update Sat May 10 15:29:33 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -34,13 +34,20 @@
 */
 # define SCREEN_X	640
 # define SCREEN_Y	480
-# define DELAY		500
+# define DELAY		100
+
+/*
+** Backdrop's defines
+*/
+# define BACKDROP_FILE	"images/volcan.bmp"
+# define BACKDROP_X	320
+# define BACKDROP_Y	172
 
 /*
 ** Character's defines
 */
 # define CHARACTER_FILE		"images/bibi.bmp"
-# define CHARACTER_MAX_PER_LINE	5
+# define CHARACTER_MAX_PER_LINE	3
 # define CHARACTER_X		32
 # define CHARACTER_Y		48
 
@@ -60,8 +67,8 @@
 /*
 ** Character position's macros
 */
-# define GET_CHARACTER_X(nbr)	((nbr) % CHARACTER_MAX_PER_LINE)
-# define GET_CHARACTER_Y(nbr)	((nbr) / CHARACTER_MAX_PER_LINE)
+# define GET_CHARACTER_X(nbr)	(((nbr) % CHARACTER_MAX_PER_LINE) + 1)
+# define GET_CHARACTER_Y(nbr)	(((nbr) / CHARACTER_MAX_PER_LINE) + 1)
 
 /*
 ** Thread
@@ -75,7 +82,8 @@ typedef struct	s_gfx
 {
   void		*screen;
   void		*infos;
-  void		*image;
+  void		*character;
+  void		*background;
 }		t_gfx;
 
 /*
@@ -94,7 +102,7 @@ int	catch_keys(void);
 /*
 ** Character's functions
 */
-void	create_character(t_gfx *gfx);
+int	create_character(t_gfx *gfx);
 void	destroy_character(t_gfx *gfx);
 void	set_character(t_gfx *gfx, int nbr, int x, int y);
 

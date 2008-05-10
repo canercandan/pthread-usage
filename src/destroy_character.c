@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:24:10 2008 caner candan
-** Last update Sat May 10 13:01:49 2008 caner candan
+** Last update Sat May 10 15:26:52 2008 caner candan
 */
 
 #include <SDL.h>
@@ -13,5 +13,5 @@
 
 void	destroy_character(t_gfx *gfx)
 {
-  SDL_FreeSurface(gfx->image);
+  SDL_FreeSurface(gfx->character);
 }

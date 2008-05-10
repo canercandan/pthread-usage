@@ -5,13 +5,18 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:22:50 2008 caner candan
-** Last update Sat May 10 13:00:34 2008 caner candan
+** Last update Sat May 10 15:26:41 2008 caner candan
 */
 
 #include <SDL.h>
 #include "philo1.h"
 
-void	create_character(t_gfx *gfx)
+int	create_character(t_gfx *gfx)
 {
-  gfx->image = (void *) SDL_LoadBMP(CHARACTER_FILE);
+  if (!(gfx->character = (void *) SDL_LoadBMP(CHARACTER_FILE)))
+    {
+      perror("SDL_LoadBMP");
+      return (-1);
+    }
+  return (0);
 }
