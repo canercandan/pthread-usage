@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 12:53:14 2008 florent hochwelker
+** Last update Sat May 10 13:06:47 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -19,6 +19,10 @@
 
 # define RIGHT	0
 # define LEFT	1
+
+# define ST_SLEEP	1
+# define ST_THINK	2
+# define ST_EAT		4
 
 /*
 ** Terminal's messages

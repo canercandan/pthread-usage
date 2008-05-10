@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 12:50:36 2008 florent hochwelker
+** Last update Sat May 10 13:01:30 2008 florent hochwelker
 */
 
 #include "philo1.h"
@@ -26,7 +26,7 @@ static int	init_sdl()
 
 int	main(int ac, char **av)
 {
-  if (ac == 2 && my_strcmp(av[1], "-g"))
+  if (ac == 2 && my_strcmp(av[1], "-g") == 0)
     init_sdl();
   create_thread();
   return (0);
