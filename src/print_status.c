@@ -5,10 +5,11 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 15:36:33 2008 florent hochwelker
-** Last update Sat May 10 20:51:05 2008 florent hochwelker
+** Last update Sat May 10 22:40:00 2008 caner candan
 */
 
 #include "philo1.h"
+#include "my.h"
 
 void	print_status(int id)
 {

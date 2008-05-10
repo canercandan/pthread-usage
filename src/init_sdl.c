@@ -5,13 +5,14 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 20:20:57 2008 caner candan
-** Last update Sat May 10 20:44:37 2008 florent hochwelker
+** Last update Sat May 10 22:40:11 2008 caner candan
 */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include "philo1.h"
+#include "my.h"
 
 static void	*sdl_powa(void *data)
 {
@@ -20,7 +21,6 @@ static void	*sdl_powa(void *data)
   (void)data;
   if (init_screen() < 0)
     pthread_exit(NULL);
-  init_signal(&gfx);
   if (create_backdrop(&gfx) < 0)
     pthread_exit(NULL);
   if (create_video(&gfx) < 0)
@@ -41,7 +41,7 @@ static void	*sdl_powa(void *data)
   pthread_exit(NULL);
 }
 
-int		init_sdl(void)
+int		init_sdl(t_info *info)
 {
   pthread_t	threads;
   int		r;
@@ -51,6 +51,6 @@ int		init_sdl(void)
       my_putstr("Thread error\n");
       return (-1);
     }
-  create_thread(1, NB);
+  create_thread(1, info);
   pthread_exit(NULL);
 }

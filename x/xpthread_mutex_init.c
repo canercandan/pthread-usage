@@ -5,11 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:21:07 2008 caner candan
-** Last update Tue May  6 15:42:12 2008 caner candan
+** Last update Sat May 10 22:37:24 2008 caner candan
 */
 
 #include <pthread.h>
 #include <stdio.h>
+#include "my.h"
 #include "x.h"
 
 int	xpthread_mutex_init(void *mutex, const void *attr)

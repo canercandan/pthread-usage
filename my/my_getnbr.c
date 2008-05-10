@@ -5,8 +5,10 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 20:21:56 2008 florent hochwelker
-** Last update Sat May 10 20:24:14 2008 florent hochwelker
+** Last update Sat May 10 22:39:11 2008 caner candan
 */
+
+#include "my.h"
 
 int	my_getnbr(char *str)
 {

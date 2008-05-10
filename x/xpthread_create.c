@@ -5,11 +5,11 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:11:58 2008 caner candan
-** Last update Sat May 10 21:15:17 2008 caner candan
+** Last update Sat May 10 22:38:38 2008 caner candan
 */
 
 #include <pthread.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include "my.h"
 #include "x.h"
 

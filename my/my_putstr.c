@@ -5,11 +5,11 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:46:57 2008 florent hochwelker
-** Last update Sat May 10 12:53:09 2008 florent hochwelker
+** Last update Sat May 10 22:38:57 2008 caner candan
 */
 
 #include <unistd.h>
-#include "philo1.h"
+#include "my.h"
 
 void	my_putstr(char *str)
 {

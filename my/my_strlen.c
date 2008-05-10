@@ -5,8 +5,10 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:15:08 2008 florent hochwelker
-** Last update Sat May 10 12:53:34 2008 florent hochwelker
+** Last update Sat May 10 22:39:33 2008 caner candan
 */
+
+#include "my.h"
 
 int	my_strlen(char *str)
 {

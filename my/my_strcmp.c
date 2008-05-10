@@ -5,8 +5,10 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Mon Oct  8 20:49:29 2007 florent hochwelker
-** Last update Sat May 10 12:53:34 2008 florent hochwelker
+** Last update Sat May 10 22:39:26 2008 caner candan
 */
+
+#include "my.h"
 
 int	my_strcmp(char *s1, char *s2)
 {

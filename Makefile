@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 20:41:34 2008 florent hochwelker
+## Last update Sat May 10 22:27:26 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -22,18 +22,9 @@ PATH_BIN	=	$(NAME_BIN)/
 BIN		=	$(PATH_BIN)$(NAME_APP)
 
 SRCS_X		=	$(PATH_X)xpthread_create.c		\
-			$(PATH_X)xpthread_exit.c		\
-			$(PATH_X)xpthread_join.c		\
-			$(PATH_X)xpthread_cancel.c		\
 			$(PATH_X)xpthread_mutex_destroy.c	\
 			$(PATH_X)xpthread_mutex_init.c		\
-			$(PATH_X)xpthread_mutex_lock.c		\
 			$(PATH_X)xpthread_mutex_unlock.c	\
-			$(PATH_X)xpthread_cond_init.c		\
-			$(PATH_X)xpthread_cond_destroy.c	\
-			$(PATH_X)xpthread_cond_wait.c		\
-			$(PATH_X)xpthread_cond_signal.c		\
-			$(PATH_X)xpthread_cond_broadcast.c	\
 			$(PATH_X)xmalloc.c
 
 SRCS		=	$(PATH_SRC)main.c		\
@@ -53,7 +44,8 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)catch_keys.c		\
 			$(PATH_SRC)create_thread.c	\
 			$(PATH_SRC)get_id.c		\
-			$(PATH_SRC)init_sdl.c
+			$(PATH_SRC)init_sdl.c		\
+			$(PATH_SRC)parse_args.c
 
 SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 			$(PATH_MY)my_putstr.c		\

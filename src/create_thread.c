@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 21:19:15 2008 florent hochwelker
+** Last update Sat May 10 22:44:43 2008 caner candan
 */
 
 #include <pthread.h>
@@ -16,46 +16,48 @@
 
 int			*gl_status;
 int			*gl_hp;
-static pthread_mutex_t	*stick;
+void			*gl_stick;
 
-static void		change_status(int id, int nb_philo)
+static void		change_status(int id, int nb_sticks)
 {
   if (gl_status[id] == EAT)
     {
       gl_hp[id] += 1;
-      xpthread_mutex_unlock(stick + get_id(id, RIGHT, nb_philo));
-      xpthread_mutex_unlock(stick + get_id(id, LEFT, nb_philo));
+      xpthread_mutex_unlock(PTHREAD_MUTEX(gl_stick)
+			    + get_id(id, RIGHT, nb_sticks));
+      xpthread_mutex_unlock(PTHREAD_MUTEX(gl_stick)
+			    + get_id(id, LEFT, nb_sticks));
       gl_status[id] = 0;
     }
   else
-    {
-      if (pthread_mutex_lock(stick + get_id(id, RIGHT, nb_philo)) == 0)
-	{
+    if (!pthread_mutex_lock(PTHREAD_MUTEX(gl_stick)
+			    + get_id(id, RIGHT, nb_sticks)))
+      {
+	gl_status[id]++;
+	if (!pthread_mutex_lock(PTHREAD_MUTEX(gl_stick)
+				+ get_id(id, LEFT, nb_sticks)))
 	  gl_status[id]++;
-	  if (pthread_mutex_lock(stick + get_id(id, LEFT, nb_philo)) == 0)
-	    gl_status[id]++;
-	}
-    }
+      }
 }
 
-static void	*start_routine(void *info)
+static void	*start_routine(void *data)
 {
   int		id;
-  int		nb_philo;
+  int		nb_sticks;
 
-  id = (long)info & 0xff;
-  nb_philo = ((long)info >> 8) & 0xff;
+  id = (long)data & 0xff;
+  nb_sticks = ((long)data >> 8) & 0xff;
   gl_hp[id] = 0;
   gl_status[id] = 0;
   while (1)
     {
-      change_status(id, nb_philo);
+      change_status(id, nb_sticks);
       sleep(1);
     }
   pthread_exit(NULL);
 }
 
-static int	loop_print(int nb_philo)
+static int	loop_print(int nb_philos)
 {
   int		i;
 
@@ -63,36 +65,35 @@ static int	loop_print(int nb_philo)
   while (1)
     {
       i = 0;
-      while (i < nb_philo)
+      while (i < nb_philos)
 	print_status(i++);
       sleep(1);
     }
   pthread_exit(NULL);
 }
 
-int		create_thread(int sdl_on, int nb_philo)
+int		create_thread(int sdl_on, t_info *info)
 {
-  pthread_t	*threads;
-  int		info;
+  int		data;
   int		i;
 
-  threads = xmalloc(sizeof(*threads) * nb_philo);
-  gl_status = xmalloc(sizeof(*gl_status) * nb_philo);
-  gl_hp = xmalloc(sizeof(*gl_hp) * nb_philo);
-  stick = xmalloc(sizeof(*stick) * nb_philo);
+  info->threads = xmalloc(sizeof(*PTHREAD(info->threads)) * info->nb_philos);
+  gl_status = xmalloc(sizeof(*gl_status) * info->nb_philos);
+  gl_hp = xmalloc(sizeof(*gl_hp) * info->nb_philos);
+  gl_stick = xmalloc(sizeof(*PTHREAD_MUTEX(gl_stick)) * info->nb_sticks);
   i = 0;
-  while (i < nb_philo)
-    xpthread_mutex_init(&stick[i++], 0);
+  while (i < info->nb_philos)
+    xpthread_mutex_init(&PTHREAD_MUTEX(gl_stick)[i++], 0);
   i = 0;
-  while (i < nb_philo)
+  while (i < info->nb_philos)
     {
-      info = 0;
-      info |= i;
-      info |= nb_philo << 8;
-      xpthread_create(&threads[i], NULL, start_routine, (void *)info);
+      data = 0;
+      data |= i;
+      data |= info->nb_sticks << 8;
+      xpthread_create(&(PTHREAD(info->threads)[i]), NULL, start_routine, (void *)data);
       i++;
     }
   if (!sdl_on)
-    loop_print(nb_philo);
+    loop_print(info->nb_philos);
   pthread_exit(NULL);
 }

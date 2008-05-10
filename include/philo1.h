@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 21:24:10 2008 caner candan
+** Last update Sat May 10 22:37:56 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -81,10 +81,12 @@
 /*
 ** Useful's macros
 */
+# define INFO(data)	((t_info *)(data))
 # define GFX(data)	((t_gfx *)(data))
 
 extern int	*gl_status;
 extern int	*gl_hp;
+extern void	*gl_stick;
 
 /*
 ** GFX's structure
@@ -103,9 +105,11 @@ typedef struct	s_gfx
 */
 typedef struct	s_info
 {
+  int		id;
   int		nb_philos;
   int		nb_sticks;
   t_gfx		gfx;
+  void		*threads;
 }		t_info;
 
 /*
@@ -120,7 +124,7 @@ typedef struct	s_pos
 }		t_pos;
 
 
-int	create_thread(int sdl_on, int nb_philo);
+int	create_thread(int sdl_on, t_info *info);
 void	print_status(int id);
 int	get_id(int thread_id, int direction, int nb_philo);
 
@@ -128,8 +132,9 @@ int	get_id(int thread_id, int direction, int nb_philo);
 /*
 ** Inits' function
 */
-void	init_signal(t_gfx *gfx);
-int	init_sdl(void);
+void	init_signal(t_info *info);
+int	init_sdl(t_info *info);
+int	parse_args(int ac, char **av, t_info *info);
 
 /*
 ** GFX's functions
@@ -158,15 +163,5 @@ void	set_character(t_gfx *gfx, int nbr, int x, int y);
 */
 int	create_status(t_gfx *gfx);
 void	set_status(t_gfx *gfx, int nbr, int x, int y);
-
-/*
-** My
-*/
-void	my_putnbr(unsigned int n);
-void	my_putstr(char *str);
-void	my_putchar(char c);
-int	my_strlen(char *str);
-int	my_strcmp(char *s1, char *s2);
-int	my_getnbr(char *str);
 
 #endif /* __PHILO1_H__ */

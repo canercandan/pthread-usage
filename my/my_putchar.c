@@ -5,10 +5,11 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:15:31 2008 florent hochwelker
-** Last update Sat May 10 12:53:35 2008 florent hochwelker
+** Last update Sat May 10 22:39:15 2008 caner candan
 */
 
 #include <unistd.h>
+#include "my.h"
 
 void	my_putchar(char c)
 {
