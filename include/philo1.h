@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 15:29:33 2008 caner candan
+** Last update Sat May 10 16:19:23 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -35,13 +35,13 @@
 # define SCREEN_X	640
 # define SCREEN_Y	480
 # define DELAY		100
+# define UNIT_X		5
+# define UNIT_Y		5
 
 /*
 ** Backdrop's defines
 */
-# define BACKDROP_FILE	"images/volcan.bmp"
-# define BACKDROP_X	320
-# define BACKDROP_Y	172
+# define BACKDROP_FILE	"images/savane.bmp"
 
 /*
 ** Character's defines
@@ -67,8 +67,13 @@
 /*
 ** Character position's macros
 */
-# define GET_CHARACTER_X(nbr)	(((nbr) % CHARACTER_MAX_PER_LINE) + 1)
-# define GET_CHARACTER_Y(nbr)	(((nbr) / CHARACTER_MAX_PER_LINE) + 1)
+# define GET_CHARACTER_X(nbr)	(((nbr) % CHARACTER_MAX_PER_LINE))
+# define GET_CHARACTER_Y(nbr)	(((nbr) / CHARACTER_MAX_PER_LINE))
+
+/*
+** Useful's macros
+*/
+# define GFX(data)	((t_gfx *)(data))
 
 /*
 ** Thread
@@ -80,10 +85,10 @@ int	create_thread();
 */
 typedef struct	s_gfx
 {
-  void		*screen;
+  void		*video;
   void		*infos;
   void		*character;
-  void		*background;
+  void		*backdrop;
 }		t_gfx;
 
 /*
@@ -94,10 +99,12 @@ void	init_signal(t_gfx *gfx);
 /*
 ** GFX's functions
 */
-int	init_screen(t_gfx *gfx);
-void	destroy_screen(t_gfx *gfx);
+int	init_screen(void);
+void	destroy_screen(void);
 int	loop_env(t_gfx *gfx);
 int	catch_keys(void);
+void	destroy_surface(void *surface);
+int	create_video(t_gfx *gfx);
 
 /*
 ** Character's functions
@@ -105,6 +112,13 @@ int	catch_keys(void);
 int	create_character(t_gfx *gfx);
 void	destroy_character(t_gfx *gfx);
 void	set_character(t_gfx *gfx, int nbr, int x, int y);
+
+/*
+** Backdrop's functions
+*/
+int	create_backdrop(t_gfx *gfx);
+void	destroy_backdrop(t_gfx *gfx);
+void	set_backdrop(t_gfx *gfx, int x, int y);
 
 /*
 ** My

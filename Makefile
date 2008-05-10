@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 12:54:26 2008 caner candan
+## Last update Sat May 10 15:48:30 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -42,13 +42,16 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)create_character.c	\
 			$(PATH_SRC)destroy_character.c	\
 			$(PATH_SRC)set_character.c	\
+			$(PATH_SRC)create_backdrop.c	\
+			$(PATH_SRC)destroy_backdrop.c	\
+			$(PATH_SRC)set_backdrop.c	\
+			$(PATH_SRC)catch_keys.c		\
 			$(PATH_SRC)create_thread.c	\
 			$(PATH_SRC)my_putnbr.c		\
 			$(PATH_SRC)my_putstr.c		\
 			$(PATH_SRC)my_strlen.c		\
 			$(PATH_SRC)my_strcmp.c		\
-			$(PATH_SRC)my_putchar.c		\
-			$(PATH_SRC)catch_keys.c
+			$(PATH_SRC)my_putchar.c
 
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X)

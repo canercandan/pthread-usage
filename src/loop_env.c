@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 15:33:17 2008 florent hochwelker
+** Last update Sat May 10 16:22:38 2008 caner candan
 */
 
 #include <SDL.h>
@@ -13,19 +13,18 @@
 
 int		loop_env(t_gfx *gfx)
 {
-  static int	i = 0;
+  static int	i = 6;
+  static int	j = 0;
+  static int	k = 0;
   int	stat[NB];
 
   if (catch_keys() < 0)
     return (-1);
-  set_character(gfx, i % 9, 1, 1);
-  set_character(gfx, i % 9, 1, 2);
-  set_character(gfx, i % 9, 1, 3);
-  set_character(gfx, i % 9, 3, 1);
-  set_character(gfx, i % 9, 3, 2);
-  set_character(gfx, i % 9, 3, 3);
-  SDL_Flip(gfx->screen);
+  set_backdrop(gfx, 0, 0);
+  set_character(gfx, i, j % 50, 35);
+  SDL_Flip(gfx->video);
   SDL_Delay(DELAY);
-  i++;
+  j++;
+  k++;
   return (0);
 }

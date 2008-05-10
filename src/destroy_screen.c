@@ -5,14 +5,13 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:23:32 2008 caner candan
-** Last update Sat May 10 11:24:44 2008 caner candan
+** Last update Sat May 10 16:14:04 2008 caner candan
 */
 
 #include <SDL.h>
 #include "philo1.h"
 
-void	destroy_screen(t_gfx *gfx)
+void	destroy_screen(void)
 {
-  (void) gfx;
   SDL_Quit();
 }
