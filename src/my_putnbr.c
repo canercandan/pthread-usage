@@ -5,12 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:21:36 2008 caner candan
-** Last update Sat May 10 12:21:36 2008 caner candan
+** Last update Sat May 10 12:38:30 2008 florent hochwelker
 */
 
-#include <string.h>
+#include <unistd.h>
 
-void	putnbr(unsigned int n)
+void	my_putnbr(unsigned int n)
 {
   int	rest;
   char	c;
@@ -18,7 +18,7 @@ void	putnbr(unsigned int n)
   rest = n % 10;
   n = n / 10;
   if (n != 0)
-    putnbr(n);
+    my_putnbr(n);
   c = rest + '0';
   write(1, &c, 1);
 }
