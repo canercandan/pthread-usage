@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 13:06:47 2008 florent hochwelker
+** Last update Sat May 10 13:19:13 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -37,6 +37,14 @@
 # define DELAY		500
 
 /*
+** Character's defines
+*/
+# define CHARACTER_FILE		"images/bibi.bmp"
+# define CHARACTER_MAX_PER_LINE	5
+# define CHARACTER_X		32
+# define CHARACTER_Y		48
+
+/*
 ** Null's define
 */
 # ifndef NULL
@@ -50,6 +58,12 @@
 # define SDL_VI(data)	((SDL_VideoInfo *)(data))
 
 /*
+** Character position's macros
+*/
+# define GET_CHARACTER_X(nbr)	((nbr) % CHARACTER_MAX_PER_LINE)
+# define GET_CHARACTER_Y(nbr)	((nbr) / CHARACTER_MAX_PER_LINE)
+
+/*
 ** Thread
 */
 int	create_thread();
@@ -57,12 +71,12 @@ int	create_thread();
 /*
 ** GFX's structure
 */
-  typedef struct	s_gfx
-  {
-    void		*screen;
-    void		*infos;
-    void		*image;
-  }		t_gfx;
+typedef struct	s_gfx
+{
+  void		*screen;
+  void		*infos;
+  void		*image;
+}		t_gfx;
 
 /*
 ** Init signal function
@@ -76,6 +90,13 @@ int	init_screen(t_gfx *gfx);
 void	destroy_screen(t_gfx *gfx);
 int	loop_env(t_gfx *gfx);
 int	catch_keys(void);
+
+/*
+** Character's functions
+*/
+void	create_character(t_gfx *gfx);
+void	destroy_character(t_gfx *gfx);
+void	set_character(t_gfx *gfx, int nbr, int x, int y);
 
 /*
 ** My

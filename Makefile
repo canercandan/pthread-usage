@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 12:53:48 2008 florent hochwelker
+## Last update Sat May 10 12:54:26 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -39,6 +39,9 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)init_screen.c	\
 			$(PATH_SRC)destroy_screen.c	\
 			$(PATH_SRC)loop_env.c		\
+			$(PATH_SRC)create_character.c	\
+			$(PATH_SRC)destroy_character.c	\
+			$(PATH_SRC)set_character.c	\
 			$(PATH_SRC)create_thread.c	\
 			$(PATH_SRC)my_putnbr.c		\
 			$(PATH_SRC)my_putstr.c		\
