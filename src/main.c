@@ -5,11 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 19:25:28 2008 florent hochwelker
+** Last update Sat May 10 20:17:31 2008 caner candan
 */
 
 #include <unistd.h>
 #include <pthread.h>
+#include <stdlib.h>
 #include "philo1.h"
 
 static void	*sdl_powa(void *data)
@@ -36,6 +37,7 @@ static void	*sdl_powa(void *data)
   destroy_surface(gfx.backdrop);
   destroy_surface(gfx.video);
   destroy_screen();
+  exit(0);
   pthread_exit(NULL);
 }
 
