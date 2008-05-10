@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 16:19:23 2008 caner candan
+** Last update Sat May 10 17:12:30 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -41,7 +41,7 @@
 /*
 ** Backdrop's defines
 */
-# define BACKDROP_FILE	"images/savane.bmp"
+# define BACKDROP_FILE	"images/arena.bmp"
 
 /*
 ** Character's defines

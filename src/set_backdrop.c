@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 15:36:12 2008 caner candan
-** Last update Sat May 10 16:17:29 2008 caner candan
+** Last update Sat May 10 17:20:27 2008 caner candan
 */
 
 #include <SDL.h>
@@ -20,8 +20,8 @@ void		set_backdrop(t_gfx *gfx, int x, int y)
   src.y = 0;
   src.w = SDL_SF(gfx->backdrop)->w;
   src.h = SDL_SF(gfx->backdrop)->h;
-  dst.x = UNIT_X * x;
-  dst.y = UNIT_Y * y;
+  dst.x = x;
+  dst.y = y;
   dst.w = SDL_SF(gfx->backdrop)->w;
   dst.h = SDL_SF(gfx->backdrop)->h;
   SDL_SetColorKey(gfx->backdrop, SDL_SRCCOLORKEY,

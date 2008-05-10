@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:25:01 2008 caner candan
-** Last update Sat May 10 16:17:01 2008 caner candan
+** Last update Sat May 10 17:20:09 2008 caner candan
 */
 
 #include <SDL.h>
@@ -20,8 +20,8 @@ void		set_character(t_gfx *gfx, int nbr, int x, int y)
   src.y = CHARACTER_Y * GET_CHARACTER_Y(nbr);
   src.w = CHARACTER_X;
   src.h = CHARACTER_Y;
-  dst.x = UNIT_X * x;
-  dst.y = UNIT_Y * y;
+  dst.x = x;
+  dst.y = y;
   dst.w = CHARACTER_X;
   dst.h = CHARACTER_Y;
   SDL_SetColorKey(gfx->character, SDL_SRCCOLORKEY,
