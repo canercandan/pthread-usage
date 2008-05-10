@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 18:27:04 2008 caner candan
+** Last update Sat May 10 18:50:29 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -83,8 +83,8 @@
 */
 # define GFX(data)	((t_gfx *)(data))
 
-extern int	status[NB];
-extern int	hp[NB];
+extern int	gl_status[NB];
+extern int	gl_hp[NB];
 
 /*
 ** Thread

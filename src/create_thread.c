@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 17:42:01 2008 florent hochwelker
+** Last update Sat May 10 18:52:14 2008 caner candan
 */
 
 #include <pthread.h>
@@ -14,25 +14,25 @@
 #include "philo1.h"
 
 static pthread_mutex_t	stick[NB];
-int			status[NB];
-int			hp[NB];
+int			gl_status[NB];
+int			gl_hp[NB];
 
 static void		change_status(int id)
 {
-  if (status[id] == EAT)
+  if (gl_status[id] == EAT)
     {
-      hp[id] += 1;
+      gl_hp[id] += 1;
       pthread_mutex_unlock(stick + get_id(id, RIGHT));
       pthread_mutex_unlock(stick + get_id(id, LEFT));
-      status[id] = 0;
+      gl_status[id] = 0;
     }
   else
     {
       if (pthread_mutex_lock(stick + get_id(id, RIGHT)) == 0)
 	{
-	  status[id]++;
+	  gl_status[id]++;
 	  if (pthread_mutex_lock(stick + get_id(id, LEFT)) == 0)
-	    status[id]++;
+	    gl_status[id]++;
 	}
     }
 }
@@ -44,8 +44,8 @@ static void		*start_routine(void *info)
 
   id = (long)info & 0xff;
   sdl_on = (long)info & 0xff00;
-  hp[id] = 0;
-  status[id] = 0;
+  gl_hp[id] = 0;
+  gl_status[id] = 0;
   while (1)
     {
       change_status(id);
