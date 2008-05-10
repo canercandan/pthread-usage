@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 11:32:12 2008 caner candan
+## Last update Sat May 10 11:48:45 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -37,7 +37,9 @@ SRCS_X		=	$(PATH_X)xpthread_create.c		\
 SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)init_signal.c	\
 			$(PATH_SRC)init_screen.c	\
-			$(PATH_SRC)destroy_screen.c
+			$(PATH_SRC)destroy_screen.c	\
+			$(PATH_SRC)loop_env.c		\
+			$(PATH_SRC)catch_keys.c
 
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X)
