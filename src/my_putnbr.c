@@ -1,11 +1,11 @@
 /*
-** putnbr.c for philo1 in /home/candan_c/cu/rendu/project/philo1
+** my_putnbr.c for philo1 in /home/candan_c/cu/rendu/project/philo1
 ** 
 ** Made by caner candan
 ** Login   <candan_c@epitech.net>
 ** 
-** Started on  Sat May 10 12:20:50 2008 caner candan
-** Last update Sat May 10 12:20:51 2008 caner candan
+** Started on  Sat May 10 12:21:36 2008 caner candan
+** Last update Sat May 10 12:21:36 2008 caner candan
 */
 
 #include <string.h>
