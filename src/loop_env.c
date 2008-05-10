@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 18:34:56 2008 caner candan
+** Last update Sat May 10 18:40:45 2008 caner candan
 */
 
 #include <SDL.h>
@@ -13,13 +13,13 @@
 
 static void	set_character_center(t_gfx *gfx, int nbr, int x, int y)
 {
-  set_character(gfx, nbr,
-		(SDL_SF(gfx->backdrop)->w / 2) - (UNIT_X * x)
-		- (CHARACTER_X / 2),
-		(SDL_SF(gfx->backdrop)->h / 2) - (UNIT_Y * y)
-		- (CHARACTER_Y / 2));
-  set_status(gfx, 0, 0, 0);
-  set_status(gfx, 6, UNIT_X * 5, UNIT_Y * 5);
+  int		x_pos;
+  int		y_pos;
+
+  x_pos = (SDL_SF(gfx->backdrop)->w / 2) - (UNIT_X * x) - (CHARACTER_X / 2);
+  y_pos = (SDL_SF(gfx->backdrop)->h / 2) - (UNIT_Y * y) - (CHARACTER_Y / 2);
+  set_character(gfx, nbr, x_pos, y_pos);
+  set_status(gfx, 6, x_pos - 10, y_pos - 10);
 }
 
 int		loop_env(t_gfx *gfx)
