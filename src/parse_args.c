@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 21:25:43 2008 caner candan
-** Last update Sat May 10 22:43:29 2008 caner candan
+** Last update Sat May 10 22:55:31 2008 caner candan
 */
 
 #include <stdlib.h>
@@ -18,6 +18,7 @@ int	parse_args(int ac, char **av, t_info *info)
     {
       info->nb_philos = NB;
       info->nb_sticks = NB;
+      info->mode_gfx = 1;
       if (init_sdl(info) < 0)
 	return (-1);
     }
@@ -25,18 +26,21 @@ int	parse_args(int ac, char **av, t_info *info)
     {
       info->nb_philos = atoi(av[2]);
       info->nb_sticks = info->nb_philos;
+      info->mode_gfx = 0;
       return (0);
     }
   if (ac == 5 && !my_strcmp(av[1], "-n") && !my_strcmp(av[3], "-s"))
     {
       info->nb_philos = atoi(av[2]);
       info->nb_sticks = atoi(av[4]);
+      info->mode_gfx = 0;
       return (0);
     }
   else
     {
       info->nb_philos = NB;
       info->nb_sticks = NB;
+      info->mode_gfx = 0;
     }
   return (0);
 }

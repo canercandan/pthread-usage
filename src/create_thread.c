@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 22:44:43 2008 caner candan
+** Last update Sat May 10 22:56:10 2008 caner candan
 */
 
 #include <pthread.h>
@@ -90,7 +90,8 @@ int		create_thread(int sdl_on, t_info *info)
       data = 0;
       data |= i;
       data |= info->nb_sticks << 8;
-      xpthread_create(&(PTHREAD(info->threads)[i]), NULL, start_routine, (void *)data);
+      xpthread_create(&(PTHREAD(info->threads)[i]), NULL, start_routine,
+		      (void *)data);
       i++;
     }
   if (!sdl_on)

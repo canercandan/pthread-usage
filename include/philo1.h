@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 22:37:56 2008 caner candan
+** Last update Sat May 10 22:54:18 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -105,11 +105,12 @@ typedef struct	s_gfx
 */
 typedef struct	s_info
 {
-  int		id;
-  int		nb_philos;
-  int		nb_sticks;
+  char		id;
+  char		nb_philos;
+  char		nb_sticks;
   t_gfx		gfx;
   void		*threads;
+  char		mode_gfx;
 }		t_info;
 
 /*
