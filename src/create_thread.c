@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 21:10:37 2008 florent hochwelker
+** Last update Sat May 10 21:19:15 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -23,8 +23,8 @@ static void		change_status(int id, int nb_philo)
   if (gl_status[id] == EAT)
     {
       gl_hp[id] += 1;
-      pthread_mutex_unlock(stick + get_id(id, RIGHT, nb_philo));
-      pthread_mutex_unlock(stick + get_id(id, LEFT, nb_philo));
+      xpthread_mutex_unlock(stick + get_id(id, RIGHT, nb_philo));
+      xpthread_mutex_unlock(stick + get_id(id, LEFT, nb_philo));
       gl_status[id] = 0;
     }
   else
@@ -73,7 +73,6 @@ static int	loop_print(int nb_philo)
 int		create_thread(int sdl_on, int nb_philo)
 {
   pthread_t	*threads;
-  int		r;
   int		info;
   int		i;
 
@@ -83,21 +82,14 @@ int		create_thread(int sdl_on, int nb_philo)
   stick = xmalloc(sizeof(*stick) * nb_philo);
   i = 0;
   while (i < nb_philo)
-    {
-      pthread_mutex_init(&stick[i], 0);
-      i++;
-    }
+    xpthread_mutex_init(&stick[i++], 0);
   i = 0;
   while (i < nb_philo)
     {
       info = 0;
       info |= i;
       info |= nb_philo << 8;
-      if ((r = pthread_create(&threads[i], NULL, start_routine, (void *)info)) < 0)
-	{
-	  my_putstr("Thread error\n");
-	  exit(-1);
-	}
+      xpthread_create(&threads[i], NULL, start_routine, (void *)info);
       i++;
     }
   if (!sdl_on)

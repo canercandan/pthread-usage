@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sat May 10 18:02:37 2008 caner candan
+** Last update Sat May 10 21:21:26 2008 florent hochwelker
 */
 
 #include <signal.h>
@@ -24,6 +24,7 @@ static void	power_off(int signal)
   destroy_surface(GFX(signal_data)->backdrop);
   destroy_surface(GFX(signal_data)->video);
   destroy_screen();
+  xpthread_mutex_destroy();
   write(1, PWR_OFF_MESG, strlen(PWR_OFF_MESG));
   exit(0);
 }
