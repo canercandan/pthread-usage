@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 19:28:00 2008 florent hochwelker
+** Last update Sat May 10 20:03:34 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -13,9 +13,9 @@
 #include <stdlib.h>
 #include "philo1.h"
 
-static pthread_mutex_t	stick[NB];
 int			gl_status[NB];
 int			gl_hp[NB];
+static pthread_mutex_t	stick[NB];
 
 static void		change_status(int id)
 {
@@ -52,6 +52,21 @@ static void	*start_routine(void *info)
   pthread_exit(NULL);
 }
 
+static int	loop_print()
+{
+  int		i;
+
+  i = 0;
+  while (1)
+    {
+      i = 0;
+      while (i < NB)
+	print_status(i++);
+      sleep(1);
+    }
+  pthread_exit(NULL);
+}
+
 int		create_thread(int sdl_on)
 {
   pthread_t	*threads;
@@ -76,12 +91,6 @@ int		create_thread(int sdl_on)
       i++;
     }
   if (!sdl_on)
-    while (1)
-      {
-	i = 0;
-	while (i < NB)
-	  print_status(i++);
-	sleep(1);
-      }
+    loop_print();
   pthread_exit(NULL);
 }
