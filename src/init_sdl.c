@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 20:20:57 2008 caner candan
-** Last update Sat May 10 20:25:22 2008 caner candan
+** Last update Sat May 10 20:44:37 2008 florent hochwelker
 */
 
 #include <unistd.h>
@@ -51,6 +51,6 @@ int		init_sdl(void)
       my_putstr("Thread error\n");
       return (-1);
     }
-  create_thread(1);
+  create_thread(1, NB);
   pthread_exit(NULL);
 }

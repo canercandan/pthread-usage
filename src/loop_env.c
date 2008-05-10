@@ -5,14 +5,14 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 19:39:26 2008 caner candan
+** Last update Sat May 10 20:39:43 2008 florent hochwelker
 */
 
 #include <SDL.h>
 #include "philo1.h"
 
-int	gl_status[NB];
-int	gl_hp[NB];
+int	*gl_status;
+int	*gl_hp;
 
 static t_pos	pos[] = {
   {0, 0, 0, 17},

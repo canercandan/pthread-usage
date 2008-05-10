@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 20:24:10 2008 caner candan
+## Last update Sat May 10 20:41:34 2008 florent hochwelker
 ##
 
 NAME_APP	=	philo1
@@ -33,7 +33,8 @@ SRCS_X		=	$(PATH_X)xpthread_create.c		\
 			$(PATH_X)xpthread_cond_destroy.c	\
 			$(PATH_X)xpthread_cond_wait.c		\
 			$(PATH_X)xpthread_cond_signal.c		\
-			$(PATH_X)xpthread_cond_broadcast.c
+			$(PATH_X)xpthread_cond_broadcast.c	\
+			$(PATH_X)xmalloc.c
 
 SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)init_signal.c	\
@@ -58,6 +59,7 @@ SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 			$(PATH_MY)my_putstr.c		\
 			$(PATH_MY)my_strlen.c		\
 			$(PATH_MY)my_strcmp.c		\
+			$(PATH_MY)my_getnbr.c		\
 			$(PATH_MY)my_putchar.c
 
 

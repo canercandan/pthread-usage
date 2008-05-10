@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 20:23:55 2008 caner candan
+** Last update Sat May 10 20:58:40 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -83,19 +83,8 @@
 */
 # define GFX(data)	((t_gfx *)(data))
 
-extern int	gl_status[NB];
-extern int	gl_hp[NB];
-
-/*
-** Thread
-*/
-int	create_thread();
-
-/*
-** Tu fait chier avec tes commentaires ...
-*/
-void	print_status(int id);
-int	get_id(int thread_id, int direction);
+extern int	*gl_status;
+extern int	*gl_hp;
 
 /*
 ** GFX's structure
@@ -119,6 +108,12 @@ typedef struct	s_pos
   int		x;
   int		y;
 }		t_pos;
+
+
+int	create_thread(int sdl_on, int nb_philo);
+void	print_status(int id);
+int	get_id(int thread_id, int direction, int nb_philo);
+
 
 /*
 ** Inits' function
@@ -162,5 +157,6 @@ void	my_putstr(char *str);
 void	my_putchar(char c);
 int	my_strlen(char *str);
 int	my_strcmp(char *s1, char *s2);
+int	my_getnbr(char *str);
 
 #endif /* __PHILO1_H__ */

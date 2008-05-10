@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 15:36:33 2008 florent hochwelker
-** Last update Sat May 10 18:51:22 2008 caner candan
+** Last update Sat May 10 20:51:05 2008 florent hochwelker
 */
 
 #include "philo1.h"
@@ -14,7 +14,7 @@ void	print_status(int id)
 {
   if (id == 0)
     my_putstr("----\n");
-  my_putchar(id + '0');
+  my_putnbr(id);
   my_putstr(": mon etat est ");
   if (gl_status[id] == THINK)
     my_putstr("\"reflechi\"");
