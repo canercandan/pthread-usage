@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 17:02:08 2008 florent hochwelker
+** Last update Sat May 10 17:42:01 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -16,16 +16,6 @@
 static pthread_mutex_t	stick[NB];
 int			status[NB];
 int			hp[NB];
-
-static int		get_id(int thread_id, int direction)
-{
-  thread_id += direction;
-  if (thread_id == NB)
-    thread_id = 0;
-  if (thread_id == -1)
-    thread_id = NB - 1;
-  return (thread_id);
-}
 
 static void		change_status(int id)
 {

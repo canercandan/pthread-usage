@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 17:28:06 2008 florent hochwelker
+** Last update Sat May 10 17:44:34 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -75,6 +75,9 @@
 */
 # define GFX(data)	((t_gfx *)(data))
 
+extern int	status[NB];
+extern int	hp[NB];
+
 /*
 ** Thread
 */
@@ -84,8 +87,7 @@ int	create_thread();
 ** Tu fait chier avec tes commentaires ...
 */
 void	print_status(int id);
-extern int	status[NB];
-extern int	hp[NB];
+int	get_id(int thread_id, int direction);
 
 /*
 ** GFX's structure
