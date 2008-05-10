@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 18:52:14 2008 caner candan
+** Last update Sat May 10 19:11:02 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -40,10 +40,8 @@ static void		change_status(int id)
 static void		*start_routine(void *info)
 {
   int			id;
-  int			sdl_on;
 
-  id = (long)info & 0xff;
-  sdl_on = (long)info & 0xff00;
+  id = (long)info;
   gl_hp[id] = 0;
   gl_status[id] = 0;
   while (1)
@@ -59,7 +57,6 @@ int		create_thread(int sdl_on)
   pthread_t	*threads;
   int		r;
   int		i;
-  long		info;
 
   threads = malloc(sizeof(*threads) * NB);
   i = 0;
@@ -71,22 +68,20 @@ int		create_thread(int sdl_on)
   i = 0;
   while (i < NB)
     {
-      info = 0;
-      info |= i;
-      info |= (sdl_on << 8);
-      if ((r = pthread_create(&threads[i], NULL, start_routine, (void *)info)))
+      if ((r = pthread_create(&threads[i], NULL, start_routine, (void *)i)))
 	{
 	  my_putstr("Thread error\n");
 	  exit(-1);
 	}
       i++;
     }
-  while (1)
-    {
-      i = 0;
-      while (i < NB)
-	print_status(i++);
-      sleep(1);
-    }
+  if (!sdl_on)
+    while (1)
+      {
+	i = 0;
+	while (i < NB)
+	  print_status(i++);
+	sleep(1);
+      }
   pthread_exit(NULL);
 }
