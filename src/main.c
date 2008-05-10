@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 19:17:09 2008 florent hochwelker
+** Last update Sat May 10 19:25:28 2008 florent hochwelker
 */
 
 #include <unistd.h>
@@ -44,13 +44,13 @@ static int	init_sdl()
   pthread_t	threads;
   int		r;
 
-  create_thread(0);
-  if ((r = pthread_create(&threads, NULL, sdl_powa, NULL)))
+  if ((r = pthread_create(&threads, NULL, sdl_powa, NULL)) < 0)
     {
       my_putstr("Thread error\n");
       return (-1);
     }
-  return (0);
+  create_thread(1);
+  pthread_exit(NULL);
 }
 
 int	main(int ac, char **av)
@@ -63,5 +63,5 @@ int	main(int ac, char **av)
     }
   else
     create_thread(0);
-  return (0);
+  pthread_exit(NULL);
 }

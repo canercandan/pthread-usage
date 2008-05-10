@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sat May 10 19:11:02 2008 florent hochwelker
+** Last update Sat May 10 19:28:00 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -37,9 +37,9 @@ static void		change_status(int id)
     }
 }
 
-static void		*start_routine(void *info)
+static void	*start_routine(void *info)
 {
-  int			id;
+  int		id;
 
   id = (long)info;
   gl_hp[id] = 0;
@@ -68,7 +68,7 @@ int		create_thread(int sdl_on)
   i = 0;
   while (i < NB)
     {
-      if ((r = pthread_create(&threads[i], NULL, start_routine, (void *)i)))
+      if ((r = pthread_create(&threads[i], NULL, start_routine, (void *)i)) < 0)
 	{
 	  my_putstr("Thread error\n");
 	  exit(-1);
