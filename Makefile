@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 18:20:34 2008 caner candan
+## Last update Sat May 10 18:27:34 2008 florent hochwelker
 ##
 
 NAME_APP	=	philo1
@@ -15,6 +15,7 @@ NAME_BIN	=	bin
 NAME_OBJ	=	obj
 
 PATH_SRC	=	$(NAME_SRC)/
+PATH_MY		=	my/
 PATH_X		=	$(NAME_X)/
 PATH_BIN	=	$(NAME_BIN)/
 
@@ -50,15 +51,18 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)set_status.c		\
 			$(PATH_SRC)catch_keys.c		\
 			$(PATH_SRC)create_thread.c	\
-			$(PATH_SRC)get_id.c		\
-			$(PATH_SRC)my_putnbr.c		\
-			$(PATH_SRC)my_putstr.c		\
-			$(PATH_SRC)my_strlen.c		\
-			$(PATH_SRC)my_strcmp.c		\
-			$(PATH_SRC)my_putchar.c
+			$(PATH_SRC)get_id.c
+
+SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
+			$(PATH_MY)my_putstr.c		\
+			$(PATH_MY)my_strlen.c		\
+			$(PATH_MY)my_strcmp.c		\
+			$(PATH_MY)my_putchar.c
+
 
 OBJS_X		=	$(SRCS_X:.c=.o)
-OBJS		=	$(SRCS:.c=.o) $(OBJS_X)
+OBJS_MY		=	$(SRCS_MY:.c=.o)
+OBJS		=	$(SRCS:.c=.o) $(OBJS_X) $(OBJS_MY)
 
 INCLUDES_SDL	=	`pkg-config --cflags sdl`
 LIBRARY_SDL	=	`pkg-config --libs sdl`
@@ -67,7 +71,7 @@ INCLUDES	=	-I./include $(INCLUDES_SDL)
 LIBRARY		=	-L. -lpthread $(LIBRARY_SDL)
 
 DEBUG		=	-g
-PANIC		=	-Wall -W -Werror -pedantic -ansi
+PANIC		=	-Wall -W -Werror -pedantic -ansi -O2 -pipe
 
 CFLAGS		=	$(INCLUDES) $(PANIC) $(DEBUG)
 LDFLAGS		=	$(LIBRARY)
