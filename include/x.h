@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:02:27 2008 caner candan
-** Last update Thu May  8 14:54:39 2008 caner candan
+** Last update Sat May 10 20:26:32 2008 caner candan
 */
 
 #ifndef __X_H__
@@ -47,5 +47,10 @@ int	xpthread_cond_destroy(void *cond);
 int	xpthread_cond_wait(void *cond, void *mutex);
 int	xpthread_cond_signal(void *cond);
 int	xpthread_cond_broadcast(void *cond);
+
+/*
+** Malloc's functions
+*/
+void	*xmalloc(int size);
 
 #endif /* !__X_H__ */
