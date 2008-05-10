@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 18:20:43 2008 caner candan
+** Last update Sat May 10 18:27:04 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -34,7 +34,7 @@
 */
 # define SCREEN_X	640
 # define SCREEN_Y	480
-# define DELAY		50
+# define DELAY		500
 # define UNIT_X		5
 # define UNIT_Y		5
 

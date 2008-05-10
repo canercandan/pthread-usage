@@ -5,11 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-<<<<<<< .mine
-** Last update Sat May 10 18:20:12 2008 caner candan
-=======
-** Last update Sat May 10 17:28:43 2008 florent hochwelker
->>>>>>> .r40
+** Last update Sat May 10 18:34:56 2008 caner candan
 */
 
 #include <SDL.h>
