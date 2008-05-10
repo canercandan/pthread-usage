@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sat May 10 16:20:26 2008 caner candan
+** Last update Sat May 10 18:02:37 2008 caner candan
 */
 
 #include <signal.h>
@@ -19,6 +19,7 @@ static void	*signal_data = NULL;
 static void	power_off(int signal)
 {
   (void) signal;
+  destroy_surface(GFX(signal_data)->status);
   destroy_surface(GFX(signal_data)->character);
   destroy_surface(GFX(signal_data)->backdrop);
   destroy_surface(GFX(signal_data)->video);

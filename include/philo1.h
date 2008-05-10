@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 17:44:34 2008 florent hochwelker
+** Last update Sat May 10 18:20:43 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -34,7 +34,7 @@
 */
 # define SCREEN_X	640
 # define SCREEN_Y	480
-# define DELAY		100
+# define DELAY		50
 # define UNIT_X		5
 # define UNIT_Y		5
 
@@ -52,6 +52,14 @@
 # define CHARACTER_Y		48
 
 /*
+** Status' defines
+*/
+# define STATUS_FILE		"images/status.bmp"
+# define STATUS_MAX_PER_LINE	5
+# define STATUS_X		17
+# define STATUS_Y		17
+
+/*
 ** Null's define
 */
 # ifndef NULL
@@ -65,10 +73,10 @@
 # define SDL_VI(data)	((SDL_VideoInfo *)(data))
 
 /*
-** Character position's macros
+** Position's macros
 */
-# define GET_CHARACTER_X(nbr)	(((nbr) % CHARACTER_MAX_PER_LINE))
-# define GET_CHARACTER_Y(nbr)	(((nbr) / CHARACTER_MAX_PER_LINE))
+# define GET_POSITION_X(nbr, max)	((nbr) % (max))
+# define GET_POSITION_Y(nbr, max)	((nbr) / (max))
 
 /*
 ** Useful's macros
@@ -96,8 +104,9 @@ typedef struct	s_gfx
 {
   void		*video;
   void		*infos;
-  void		*character;
   void		*backdrop;
+  void		*character;
+  void		*status;
 }		t_gfx;
 
 /*
@@ -116,18 +125,22 @@ void	destroy_surface(void *surface);
 int	create_video(t_gfx *gfx);
 
 /*
-** Character's functions
-*/
-int	create_character(t_gfx *gfx);
-void	destroy_character(t_gfx *gfx);
-void	set_character(t_gfx *gfx, int nbr, int x, int y);
-
-/*
 ** Backdrop's functions
 */
 int	create_backdrop(t_gfx *gfx);
-void	destroy_backdrop(t_gfx *gfx);
 void	set_backdrop(t_gfx *gfx, int x, int y);
+
+/*
+** Character's functions
+*/
+int	create_character(t_gfx *gfx);
+void	set_character(t_gfx *gfx, int nbr, int x, int y);
+
+/*
+** Status's functions
+*/
+int	create_status(t_gfx *gfx);
+void	set_status(t_gfx *gfx, int nbr, int x, int y);
 
 /*
 ** My

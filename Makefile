@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 17:47:29 2008 florent hochwelker
+## Last update Sat May 10 18:20:34 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -46,6 +46,8 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)print_status.c	\
 			$(PATH_SRC)create_backdrop.c	\
 			$(PATH_SRC)set_backdrop.c	\
+			$(PATH_SRC)create_status.c	\
+			$(PATH_SRC)set_status.c		\
 			$(PATH_SRC)catch_keys.c		\
 			$(PATH_SRC)create_thread.c	\
 			$(PATH_SRC)get_id.c		\

@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 12:25:01 2008 caner candan
-** Last update Sat May 10 17:20:09 2008 caner candan
+** Last update Sat May 10 18:14:59 2008 caner candan
 */
 
 #include <SDL.h>
@@ -16,8 +16,8 @@ void		set_character(t_gfx *gfx, int nbr, int x, int y)
   SDL_Rect	src;
   SDL_Rect	dst;
 
-  src.x = CHARACTER_X * GET_CHARACTER_X(nbr);
-  src.y = CHARACTER_Y * GET_CHARACTER_Y(nbr);
+  src.x = CHARACTER_X * GET_POSITION_X(nbr, CHARACTER_MAX_PER_LINE);
+  src.y = CHARACTER_Y * GET_POSITION_Y(nbr, CHARACTER_MAX_PER_LINE);
   src.w = CHARACTER_X;
   src.h = CHARACTER_Y;
   dst.x = x;

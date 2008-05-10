@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 16:22:58 2008 caner candan
+** Last update Sat May 10 18:02:24 2008 caner candan
 */
 
 #include "philo1.h"
@@ -24,9 +24,12 @@ static int	init_sdl()
     return (-1);
   if (create_character(&gfx))
     return (-1);
+  if (create_status(&gfx) < 0)
+    return (-1);
   while (53)
     if (loop_env(&gfx) < 0)
       break;
+  destroy_surface(gfx.status);
   destroy_surface(gfx.character);
   destroy_surface(gfx.backdrop);
   destroy_surface(gfx.video);
