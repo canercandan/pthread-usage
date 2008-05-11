@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sun May 11 15:27:29 2008 caner candan
-** Last update Sun May 11 15:59:37 2008 florent hochwelker
+** Last update Sun May 11 17:30:41 2008 caner candan
 */
 
 #include <pthread.h>
@@ -26,6 +26,7 @@ void	power_off(int signal)
     {
       (void)signal;
       my_putstr("\nDestroy thread...\n");
+#ifdef __SDL__
       if (gl_info.mode_gfx == 1)
 	{
 	  destroy_surface(gl_info.gfx.status);
@@ -34,6 +35,7 @@ void	power_off(int signal)
 	  destroy_surface(gl_info.gfx.video);
 	  destroy_screen();
 	}
+#endif /* !__SDL__ */
       gl_info.end = 1;
       free(gl_info.stick);
       free(gl_info.status);

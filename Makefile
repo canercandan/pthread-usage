@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sun May 11 16:14:21 2008 caner candan
+## Last update Sun May 11 17:31:53 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -29,25 +29,26 @@ SRCS_X		=	$(PATH_X)xpthread_create.c		\
 
 SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)init_signal.c	\
-			$(PATH_SRC)init_screen.c	\
-			$(PATH_SRC)destroy_screen.c	\
-			$(PATH_SRC)destroy_surface.c	\
-			$(PATH_SRC)create_video.c	\
-			$(PATH_SRC)loop_env.c		\
-			$(PATH_SRC)create_character.c	\
-			$(PATH_SRC)set_character.c	\
 			$(PATH_SRC)print_status.c	\
+			$(PATH_SRC)destroy_mutex.c	\
+			$(PATH_SRC)create_thread.c	\
+			$(PATH_SRC)get_id.c		\
+			$(PATH_SRC)parse_args.c		\
+			$(PATH_SRC)power_off.c
+
+SRCS_SDL	=	$(PATH_SRC)catch_keys.c		\
 			$(PATH_SRC)create_backdrop.c	\
 			$(PATH_SRC)set_backdrop.c	\
 			$(PATH_SRC)create_status.c	\
 			$(PATH_SRC)set_status.c		\
-			$(PATH_SRC)destroy_mutex.c	\
-			$(PATH_SRC)catch_keys.c		\
-			$(PATH_SRC)create_thread.c	\
-			$(PATH_SRC)get_id.c		\
-			$(PATH_SRC)init_sdl.c		\
-			$(PATH_SRC)parse_args.c		\
-			$(PATH_SRC)power_off.c
+			$(PATH_SRC)create_character.c	\
+			$(PATH_SRC)set_character.c	\
+			$(PATH_SRC)create_video.c	\
+			$(PATH_SRC)loop_env.c		\
+			$(PATH_SRC)destroy_surface.c	\
+			$(PATH_SRC)init_screen.c	\
+			$(PATH_SRC)destroy_screen.c	\
+			$(PATH_SRC)init_sdl.c
 
 SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 			$(PATH_MY)my_putstr.c		\
@@ -56,21 +57,30 @@ SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 			$(PATH_MY)my_getnbr.c		\
 			$(PATH_MY)my_putchar.c
 
-
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS_MY		=	$(SRCS_MY:.c=.o)
+
+.ifdef SDL
+OBJS		=	$(SRCS:.c=.o) $(SRCS_SDL:.c=.o) $(OBJS_X) $(OBJS_MY)
+
+INCLUDES_SDL	=	`pkg-config --cflags sdl`
+LIBRARY_SDL	=	`pkg-config --libs sdl`
+DEFINE_SDL	=	-D__SDL__
+.else
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X) $(OBJS_MY)
+.endif
 
-INC_SDL_FreeBSD	=	`pkg-config --cflags sdl`
-LIB_SDL_FreeBSD	=	`pkg-config --libs sdl`
+INCLUDES	=	-I./include $(INCLUDES_SDL)
+LIBRARY		=	-L. -lpthread $(LIBRARY_SDL)
 
-INCLUDES	=	-I./include $(INC_SDL_$(OSTYPE))
-LIBRARY		=	-L. -lpthread $(LIB_SDL_$(OSTYPE))
-
+.ifdef DEBUG
 DEBUG		=	-g
-PANIC		=	-Wall -W -Werror -pedantic -ansi -O2 -pipe
+.endif
 
-CFLAGS		=	$(INCLUDES) $(PANIC) $(DEBUG)
+PANIC		=	-Wall -W -Werror -pedantic -ansi -O2 -pipe	\
+			$(DEFINE_SDL)
+
+CFLAGS		=	$(INCLUDES) $(DEBUG) $(PANIC)
 LDFLAGS		=	$(LIBRARY)
 
 CC		=	gcc

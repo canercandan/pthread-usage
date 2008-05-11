@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 21:25:43 2008 caner candan
-** Last update Sun May 11 15:21:35 2008 florent hochwelker
+** Last update Sun May 11 17:29:55 2008 caner candan
 */
 
 #include <stdlib.h>
@@ -14,6 +14,7 @@
 
 t_info	gl_info;
 
+#ifdef __SDL__
 static int	with_graphic(int ac, char **av)
 {
   if (ac == 2 && !my_strcmp(av[1], "-g"))
@@ -27,6 +28,7 @@ static int	with_graphic(int ac, char **av)
     }
   return (-1);
 }
+#endif /* !__SDL__ */
 
 static int	mode_normal(int ac, char **av)
 {
@@ -43,7 +45,9 @@ static int	mode_normal(int ac, char **av)
 int	parse_args(int ac, char **av)
 {
   gl_info.end = 0;
+#ifdef __SDL__
   if (with_graphic(ac, av) < 0)
+#endif /* __SDL__ */
     if (mode_normal(ac, av) < 0)
       {
 	gl_info.nb_philos = NB;
