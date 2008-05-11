@@ -5,13 +5,13 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sun May 11 11:55:01 2008 caner candan
+** Last update Sun May 11 15:42:59 2008 florent hochwelker
 */
 
 #include <pthread.h>
 #include "philo1.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
   init_signal();
   parse_args(ac, av);

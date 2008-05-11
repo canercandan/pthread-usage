@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 15:28:45 2008 caner candan
+** Last update Sun May 11 15:31:45 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -143,6 +143,7 @@ extern t_info	gl_info;
 int	create_thread(int sdl_on);
 void	print_status(int id);
 int	get_id(int thread_id, int direction, int nb_philo);
+void	destroy_mutex(int id, int right, int left);
 
 /*
 ** Inits' function

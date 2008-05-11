@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 21:25:43 2008 caner candan
-** Last update Sun May 11 11:58:25 2008 caner candan
+** Last update Sun May 11 15:21:35 2008 florent hochwelker
 */
 
 #include <stdlib.h>
@@ -34,13 +34,6 @@ static int	mode_normal(int ac, char **av)
     {
       gl_info.nb_philos = atoi(av[2]);
       gl_info.nb_sticks = gl_info.nb_philos;
-      gl_info.mode_gfx = 0;
-      return (0);
-    }
-  if (ac == 5 && !my_strcmp(av[1], "-n") && !my_strcmp(av[3], "-s"))
-    {
-      gl_info.nb_philos = atoi(av[2]);
-      gl_info.nb_sticks = atoi(av[4]);
       gl_info.mode_gfx = 0;
       return (0);
     }

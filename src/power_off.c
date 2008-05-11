@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sun May 11 15:27:29 2008 caner candan
-** Last update Sun May 11 15:28:18 2008 caner candan
+** Last update Sun May 11 15:59:37 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -20,27 +20,26 @@ t_info	gl_info;
 
 void	power_off(int signal)
 {
-  int	i;
-
-  (void) signal;
-  if (gl_info.mode_gfx == 1)
+  if (signal != 0 && gl_info.mode_gfx == 1)
+    my_putstr("\nHit escape key for exit\n");
+  else
     {
-      destroy_surface(gl_info.gfx.status);
-      destroy_surface(gl_info.gfx.character);
-      destroy_surface(gl_info.gfx.backdrop);
-      destroy_surface(gl_info.gfx.video);
-      destroy_screen();
+      (void)signal;
+      my_putstr("\nDestroy thread...\n");
+      if (gl_info.mode_gfx == 1)
+	{
+	  destroy_surface(gl_info.gfx.status);
+	  destroy_surface(gl_info.gfx.character);
+	  destroy_surface(gl_info.gfx.backdrop);
+	  destroy_surface(gl_info.gfx.video);
+	  destroy_screen();
+	}
+      gl_info.end = 1;
+      free(gl_info.stick);
+      free(gl_info.status);
+      free(gl_info.hp);
+      free(gl_info.threads);
+      my_putstr(PWR_OFF_MESG);
+      exit(0);
     }
-  i = 0;
-  while (i < gl_info.nb_sticks)
-    {
-      xpthread_mutex_destroy(&PTHREAD_MUTEX(gl_info.stick)[i]);
-      i++;
-    }
-  free(gl_info.stick);
-  free(gl_info.status);
-  free(gl_info.hp);
-  free(gl_info.threads);
-  my_putstr(PWR_OFF_MESG);
-  exit(0);
 }

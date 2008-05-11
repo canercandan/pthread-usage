@@ -5,7 +5,7 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sun May 11 11:57:03 2008 caner candan
+** Last update Sun May 11 15:16:19 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -13,10 +13,11 @@
 #include <stdlib.h>
 #include "philo1.h"
 #include "x.h"
+#include "my.h"
 
-t_info	gl_info;
+t_info		gl_info;
 
-static void		change_status(int id)
+static void	change_status(int id, int *right, int *left)
 {
   if (gl_info.status[id] == EAT)
     {
@@ -25,30 +26,46 @@ static void		change_status(int id)
 			    + get_id(id, RIGHT, gl_info.nb_sticks));
       xpthread_mutex_unlock(PTHREAD_MUTEX(gl_info.stick)
 			    + get_id(id, LEFT, gl_info.nb_sticks));
-      gl_info.status[id] = 0;
+      *right = 0;
+      *left = 0;
+      gl_info.status[id] = SLEEP;
     }
   else
     if (!pthread_mutex_lock(PTHREAD_MUTEX(gl_info.stick)
 			    + get_id(id, RIGHT, gl_info.nb_sticks)))
       {
 	gl_info.status[id]++;
+	*right = 1;
 	if (!pthread_mutex_lock(PTHREAD_MUTEX(gl_info.stick)
 				+ get_id(id, LEFT, gl_info.nb_sticks)))
-	  gl_info.status[id]++;
+	  {
+	    gl_info.status[id]++;
+	    *left = 1;
+	  }
       }
 }
 
 static void	*start_routine(void *data)
 {
   int		id;
+  int		right;
+  int		left;
 
   id = (int)data;
+  right = 0;
+  left = 0;
   gl_info.hp[id] = 0;
   gl_info.status[id] = 0;
   while (1)
     {
-      change_status(id);
-      sleep(1);
+      if (gl_info.end)
+	{
+	  destroy_mutex(id, right, left);
+	  pthread_exit(NULL);
+	}
+      change_status(id, &right, &left);
+      if (!gl_info.end)
+	sleep(1);
     }
   pthread_exit(NULL);
 }
@@ -61,8 +78,10 @@ static int	loop_print(void)
   while (1)
     {
       i = 0;
-      while (i < gl_info.nb_philos)
+      while (i < gl_info.nb_philos && !gl_info.end)
 	print_status(i++);
+      if (gl_info.end)
+	break;
       sleep(1);
     }
   pthread_exit(NULL);
