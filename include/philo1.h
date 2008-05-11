@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sat May 10 22:54:18 2008 caner candan
+** Last update Sun May 11 11:27:41 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -111,6 +111,7 @@ typedef struct	s_info
   t_gfx		gfx;
   void		*threads;
   char		mode_gfx;
+  char		end;
 }		t_info;
 
 /*
@@ -124,11 +125,9 @@ typedef struct	s_pos
   int		y;
 }		t_pos;
 
-
 int	create_thread(int sdl_on, t_info *info);
 void	print_status(int id);
 int	get_id(int thread_id, int direction, int nb_philo);
-
 
 /*
 ** Inits' function

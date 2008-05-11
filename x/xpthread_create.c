@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:11:58 2008 caner candan
-** Last update Sat May 10 22:38:38 2008 caner candan
+** Last update Sun May 11 11:21:00 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -19,7 +19,7 @@ int	xpthread_create(void *thread, const void *attr,
   int	rc;
 
   if ((rc = pthread_create(PTHREAD(thread), PTHREAD_ATTR(attr),
-			   start_routine, arg)) < 0)
+			   start_routine, arg)) != 0)
     {
       my_putstr("pthread_create");
       exit(-1);

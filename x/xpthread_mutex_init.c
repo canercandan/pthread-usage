@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:21:07 2008 caner candan
-** Last update Sat May 10 22:37:24 2008 caner candan
+** Last update Sun May 11 11:20:14 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -18,7 +18,7 @@ int	xpthread_mutex_init(void *mutex, const void *attr)
   int	rc;
 
   if ((rc = pthread_mutex_init(PTHREAD_MUTEX(mutex),
-			       PTHREAD_MUTEXATTR(attr))) < 0)
+			       PTHREAD_MUTEXATTR(attr))) != 0)
     perror("pthread_mutex_init");
   return (rc);
 }

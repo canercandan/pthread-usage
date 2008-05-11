@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Fri May  9 19:50:37 2008 caner candan
-** Last update Sat May 10 22:36:52 2008 caner candan
+** Last update Sun May 11 11:28:04 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -17,6 +17,7 @@ int		main(int ac, char **av)
 
   init_signal(&info);
   parse_args(ac, av, &info);
+  info.end = 0;
   create_thread(0, &info);
   pthread_exit(NULL);
 }

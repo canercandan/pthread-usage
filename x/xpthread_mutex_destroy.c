@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  1 10:27:15 2008 caner candan
-** Last update Sat May 10 22:37:20 2008 caner candan
+** Last update Sun May 11 11:19:29 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -17,7 +17,7 @@ int	xpthread_mutex_destroy(void *mutex)
 {
   int	rc;
 
-  if ((rc = pthread_mutex_destroy(PTHREAD_MUTEX(mutex))) < 0)
+  if ((rc = pthread_mutex_destroy(PTHREAD_MUTEX(mutex))) != 0)
     perror("pthread_mutex_destroy");
   return (rc);
 }

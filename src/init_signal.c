@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sat May 10 23:00:08 2008 caner candan
+** Last update Sun May 11 11:24:41 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -23,14 +23,14 @@ static void	power_off(int signal)
   int		i;
 
   (void) signal;
-  if (INFO(signal_data)->mode_gfx == 1)
-    {
-      destroy_surface(INFO(signal_data)->gfx.status);
-      destroy_surface(INFO(signal_data)->gfx.character);
-      destroy_surface(INFO(signal_data)->gfx.backdrop);
-      destroy_surface(INFO(signal_data)->gfx.video);
-      destroy_screen();
-    }
+  /*   if (INFO(signal_data)->mode_gfx == 1) */
+  /*     { */
+  /*       destroy_surface(INFO(signal_data)->gfx.status); */
+  /*       destroy_surface(INFO(signal_data)->gfx.character); */
+  /*       destroy_surface(INFO(signal_data)->gfx.backdrop); */
+  /*       destroy_surface(INFO(signal_data)->gfx.video); */
+  /*       destroy_screen(); */
+  /*     } */
   i = 0;
   while (i < INFO(signal_data)->nb_sticks)
     {
@@ -41,7 +41,7 @@ static void	power_off(int signal)
   free(gl_status);
   free(gl_hp);
   free(INFO(signal_data)->threads);
-  write(1, PWR_OFF_MESG, strlen(PWR_OFF_MESG));
+  my_putstr(PWR_OFF_MESG);
   exit(0);
 }
 
