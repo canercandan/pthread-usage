@@ -51,7 +51,7 @@ static void	*start_routine(void *data)
   int		right;
   int		left;
 
-  id = (int)data;
+  id = (long)data;
   right = 0;
   left = 0;
   gl_info.hp[id] = 0;
@@ -104,7 +104,7 @@ int		create_thread(int sdl_on)
   while (i < gl_info.nb_philos)
     {
       xpthread_create(&(PTHREAD(gl_info.threads)[i]), NULL, start_routine,
-		      (void *)i);
+		      (void *)((long)i));
       i++;
     }
   if (!sdl_on)
