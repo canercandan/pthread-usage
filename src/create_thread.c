@@ -5,12 +5,12 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sat May 10 12:28:46 2008 florent hochwelker
-** Last update Sun May 11 15:16:19 2008 florent hochwelker
+** Last update Sun May 11 18:57:13 2008 caner candan
 */
 
 #include <pthread.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "philo1.h"
 #include "x.h"
 #include "my.h"

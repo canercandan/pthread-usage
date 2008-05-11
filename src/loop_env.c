@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sun May 11 14:48:46 2008 caner candan
+** Last update Sun May 11 18:55:13 2008 caner candan
 */
 
 #include <SDL.h>
@@ -34,8 +34,8 @@ static void	create_pos(t_gfx *gfx)
     {
       if (!pos[i].visible)
 	break;
-      x_pos = SET_CHARACTER_X(pos[i].x);
-      y_pos = SET_CHARACTER_X(pos[i].y + 15);
+      x_pos = SET_CHAR_X((SDL_SF(gfx->backdrop)->w / 2), pos[i].x);
+      y_pos = SET_CHAR_Y((SDL_SF(gfx->backdrop)->h / 2), pos[i].y);
       set_character(gfx, pos[i].direction, x_pos, y_pos);
       if (pos[NB - 1].visible)
 	{
@@ -77,7 +77,8 @@ static char	init_anim(t_gfx *gfx, t_pos *pos)
 		       - (CHARACTER_Y / 2)) / UNIT_Y) * -1;
       get_direction(pos);
       set_character(gfx, pos->cur_direction,
-		    SET_CHARACTER_X(pos->cur_x), SET_CHARACTER_Y(pos->cur_y));
+		    SET_CHAR_X((SDL_SF(gfx->backdrop)->w / 2), pos->cur_x),
+		    SET_CHAR_Y((SDL_SF(gfx->backdrop)->h / 2), pos->cur_y));
       if (pos->cur_y < pos->y)
 	pos->cur_y++;
       else if (pos->cur_x < pos->x)

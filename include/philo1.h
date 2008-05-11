@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 18:42:09 2008 florent hochwelker
+** Last update Sun May 11 18:57:31 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -78,12 +78,9 @@
 */
 # define GET_POSITION_X(nbr, max)	((nbr) % (max))
 # define GET_POSITION_Y(nbr, max)	((nbr) / (max))
-# define SET_CHARACTER_X(x)		((SDL_SF(gfx->backdrop)->w / 2) \
-					 - (UNIT_X * (x))		\
-					 - (CHARACTER_X / 2))
-# define SET_CHARACTER_Y(y)		((SDL_SF(gfx->backdrop)->h / 2) \
-					 - (UNIT_Y * (y))		\
-					 - (CHARACTER_Y / 2))
+
+# define SET_CHAR_X(w, x)	((w) - (UNIT_X * (x)) - (CHARACTER_X / 2))
+# define SET_CHAR_Y(h, y)	((h) - (UNIT_Y * (y)) - (CHARACTER_Y / 2))
 
 /*
 ** Useful's macros

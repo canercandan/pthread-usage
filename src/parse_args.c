@@ -5,10 +5,9 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 21:25:43 2008 caner candan
-** Last update Sun May 11 18:49:04 2008 florent hochwelker
+** Last update Sun May 11 18:57:53 2008 caner candan
 */
 
-#include <stdlib.h>
 #include "philo1.h"
 #include "my.h"
 

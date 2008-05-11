@@ -5,17 +5,18 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 15:27:22 2008 caner candan
-** Last update Sun May 11 16:28:28 2008 caner candan
+** Last update Sun May 11 18:36:56 2008 caner candan
 */
 
 #include <SDL.h>
 #include "philo1.h"
+#include "my.h"
 
 int	create_backdrop(t_gfx *gfx)
 {
   if (!(gfx->backdrop = (void *) SDL_LoadBMP(BACKDROP_FILE)))
     {
-      perror("SDL_LoadBMP");
+      my_putstr("SDL_LoadBMP");
       return (-1);
     }
   return (0);

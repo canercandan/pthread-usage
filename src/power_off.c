@@ -5,15 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sun May 11 15:27:29 2008 caner candan
-** Last update Sun May 11 17:30:41 2008 caner candan
+** Last update Sun May 11 18:43:33 2008 caner candan
 */
 
 #include <pthread.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include "philo1.h"
-#include "x.h"
 #include "my.h"
 
 t_info	gl_info;

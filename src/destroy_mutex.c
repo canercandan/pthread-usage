@@ -5,13 +5,14 @@
 ** Login   <hochwe_f@epitech.net>
 ** 
 ** Started on  Sun May 11 12:32:21 2008 florent hochwelker
-** Last update Sun May 11 15:16:18 2008 florent hochwelker
+** Last update Sun May 11 18:39:26 2008 caner candan
 */
 
 #include <pthread.h>
 #include "philo1.h"
 #include "x.h"
-#include "my.h"
+
+t_info	gl_info;
 
 void	destroy_mutex(int id, int right, int left)
 {

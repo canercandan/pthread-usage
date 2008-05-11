@@ -5,11 +5,12 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 16:07:13 2008 caner candan
-** Last update Sat May 10 16:12:07 2008 caner candan
+** Last update Sun May 11 18:39:00 2008 caner candan
 */
 
 #include <SDL.h>
 #include "philo1.h"
+#include "my.h"
 
 int	create_video(t_gfx *gfx)
 {
@@ -19,7 +20,7 @@ int	create_video(t_gfx *gfx)
 				      SDL_VI(gfx->infos)->vfmt->BitsPerPixel,
 				      SDL_VI(gfx->infos)->video_mem)))
     {
-      perror("SDL_SetVideoMode");
+      my_putstr("SDL_SetVideoMode");
       return (-1);
     }
   return (0);
