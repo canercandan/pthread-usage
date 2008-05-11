@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sun May 11 16:09:57 2008 florent hochwelker
+## Last update Sun May 11 16:14:21 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -61,11 +61,11 @@ OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS_MY		=	$(SRCS_MY:.c=.o)
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X) $(OBJS_MY)
 
-INCLUDES_SDL_FreeBSD	=	`pkg-config --cflags sdl`
-LIBRARY_SDL_FreeBSD	=	`pkg-config --libs sdl`
+INC_SDL_FreeBSD	=	`pkg-config --cflags sdl`
+LIB_SDL_FreeBSD	=	`pkg-config --libs sdl`
 
-INCLUDES	=	-I./include $(INCLUDES_SDL_$(HOSTTYPE))
-LIBRARY		=	-L. -lpthread $(LIBRARY_SDL_$(HOSTTYPE))
+INCLUDES	=	-I./include $(INC_SDL_$(OSTYPE))
+LIBRARY		=	-L. -lpthread $(LIB_SDL_$(OSTYPE))
 
 DEBUG		=	-g
 PANIC		=	-Wall -W -Werror -pedantic -ansi -O2 -pipe
