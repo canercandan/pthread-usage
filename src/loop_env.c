@@ -5,14 +5,13 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sat May 10 20:39:43 2008 florent hochwelker
+** Last update Sun May 11 11:51:24 2008 caner candan
 */
 
 #include <SDL.h>
 #include "philo1.h"
 
-int	*gl_status;
-int	*gl_hp;
+t_info	gl_info;
 
 static t_pos	pos[] = {
   {0, 0, 0, 17},
@@ -27,9 +26,9 @@ static t_pos	pos[] = {
 
 static void	get_status(t_gfx *gfx, t_pos *pos, int x, int y)
 {
-  if (gl_status[pos->id] == EAT)
+  if (gl_info.status[pos->id] == EAT)
     set_status(gfx, 6, x, y);
-  else if (gl_status[pos->id] == SLEEP)
+  else if (gl_info.status[pos->id] == SLEEP)
     set_status(gfx, 7, x, y);
   else
     set_status(gfx, 4, x, y);

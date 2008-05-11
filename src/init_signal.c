@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sun May 11 11:31:18 2008 florent hochwelker
+** Last update Sun May 11 11:32:29 2008 caner candan
 */
 
 #include <pthread.h>
@@ -17,7 +17,7 @@
 #include "x.h"
 #include "my.h"
 
-static void	*signal_data = NULL;
+t_info	gl_info;
 
 static void	power_off(int signal)
 {
@@ -33,21 +33,20 @@ static void	power_off(int signal)
   /*       destroy_screen(); */
   /*     } */
   i = 0;
-  while (i < INFO(signal_data)->nb_sticks)
+  while (i < gl_info.nb_sticks)
     {
-      xpthread_mutex_destroy(&PTHREAD_MUTEX(gl_stick)[i]);
+      xpthread_mutex_destroy(&PTHREAD_MUTEX(gl_info.stick)[i]);
       i++;
     }
-  free(gl_stick);
-  free(gl_status);
-  free(gl_hp);
-  free(INFO(signal_data)->threads);
+  free(gl_info.stick);
+  free(gl_info.status);
+  free(gl_info.hp);
+  free(gl_info.threads);
   my_putstr(PWR_OFF_MESG);
   exit(0);
 }
 
-void	init_signal(t_info *info)
+void	init_signal(void)
 {
-  signal_data = info;
   signal(SIGINT, power_off);
 }

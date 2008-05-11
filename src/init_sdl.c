@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 20:20:57 2008 caner candan
-** Last update Sat May 10 22:40:11 2008 caner candan
+** Last update Sun May 11 11:57:39 2008 caner candan
 */
 
 #include <unistd.h>
@@ -13,6 +13,8 @@
 #include <pthread.h>
 #include "philo1.h"
 #include "my.h"
+
+t_info	gl_info;
 
 static void	*sdl_powa(void *data)
 {
@@ -41,7 +43,7 @@ static void	*sdl_powa(void *data)
   pthread_exit(NULL);
 }
 
-int		init_sdl(t_info *info)
+int		init_sdl(void)
 {
   pthread_t	threads;
   int		r;
@@ -51,6 +53,6 @@ int		init_sdl(t_info *info)
       my_putstr("Thread error\n");
       return (-1);
     }
-  create_thread(1, info);
+  create_thread(1);
   pthread_exit(NULL);
 }

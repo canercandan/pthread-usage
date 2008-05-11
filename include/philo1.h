@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 11:27:41 2008 florent hochwelker
+** Last update Sun May 11 11:55:53 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -84,9 +84,9 @@
 # define INFO(data)	((t_info *)(data))
 # define GFX(data)	((t_gfx *)(data))
 
-extern int	*gl_status;
-extern int	*gl_hp;
-extern void	*gl_stick;
+/* extern int	*gl_status; */
+/* extern int	*gl_hp; */
+/* extern void	*gl_stick; */
 
 /*
 ** GFX's structure
@@ -110,6 +110,9 @@ typedef struct	s_info
   char		nb_sticks;
   t_gfx		gfx;
   void		*threads;
+  void		*stick;
+  int		*hp;
+  char		*status;
   char		mode_gfx;
   char		end;
 }		t_info;
@@ -125,16 +128,18 @@ typedef struct	s_pos
   int		y;
 }		t_pos;
 
-int	create_thread(int sdl_on, t_info *info);
+extern t_info	gl_info;
+
+int	create_thread(int sdl_on);
 void	print_status(int id);
 int	get_id(int thread_id, int direction, int nb_philo);
 
 /*
 ** Inits' function
 */
-void	init_signal(t_info *info);
-int	init_sdl(t_info *info);
-int	parse_args(int ac, char **av, t_info *info);
+void	init_signal(void);
+int	init_sdl(void);
+int	parse_args(int ac, char **av);
 
 /*
 ** GFX's functions
