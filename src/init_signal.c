@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Thu May  8 15:03:15 2008 caner candan
-** Last update Sun May 11 11:24:41 2008 florent hochwelker
+** Last update Sun May 11 11:31:18 2008 florent hochwelker
 */
 
 #include <pthread.h>
@@ -15,6 +15,7 @@
 #include <string.h>
 #include "philo1.h"
 #include "x.h"
+#include "my.h"
 
 static void	*signal_data = NULL;
 
