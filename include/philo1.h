@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 11:55:53 2008 caner candan
+** Last update Sun May 11 14:37:53 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -35,6 +35,7 @@
 # define SCREEN_X	640
 # define SCREEN_Y	480
 # define DELAY		500
+# define DELAY_ANIM	20
 # define UNIT_X		5
 # define UNIT_Y		5
 
@@ -47,7 +48,7 @@
 ** Character's defines
 */
 # define CHARACTER_FILE		"images/bibi.bmp"
-# define CHARACTER_MAX_PER_LINE	3
+# define CHARACTER_MAX_PER_LINE	4
 # define CHARACTER_X		32
 # define CHARACTER_Y		48
 
@@ -77,6 +78,12 @@
 */
 # define GET_POSITION_X(nbr, max)	((nbr) % (max))
 # define GET_POSITION_Y(nbr, max)	((nbr) / (max))
+# define SET_CHARACTER_X(x)		((SDL_SF(gfx->backdrop)->w / 2) \
+					 - (UNIT_X * (x))		\
+					 - (CHARACTER_X / 2))
+# define SET_CHARACTER_Y(y)		((SDL_SF(gfx->backdrop)->h / 2) \
+					 - (UNIT_Y * (y))		\
+					 - (CHARACTER_Y / 2))
 
 /*
 ** Useful's macros
@@ -105,10 +112,8 @@ typedef struct	s_gfx
 */
 typedef struct	s_info
 {
-  char		id;
   char		nb_philos;
   char		nb_sticks;
-  t_gfx		gfx;
   void		*threads;
   void		*stick;
   int		*hp;
@@ -126,6 +131,10 @@ typedef struct	s_pos
   int		direction;
   int		x;
   int		y;
+  int		cur_direction;
+  int		cur_x;
+  int		cur_y;
+  int		visible;
 }		t_pos;
 
 extern t_info	gl_info;

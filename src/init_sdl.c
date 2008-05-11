@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 20:20:57 2008 caner candan
-** Last update Sun May 11 11:57:39 2008 caner candan
+** Last update Sun May 11 12:09:36 2008 caner candan
 */
 
 #include <unistd.h>
@@ -21,15 +21,11 @@ static void	*sdl_powa(void *data)
   t_gfx		gfx;
 
   (void)data;
-  if (init_screen() < 0)
-    pthread_exit(NULL);
-  if (create_backdrop(&gfx) < 0)
-    pthread_exit(NULL);
-  if (create_video(&gfx) < 0)
-    pthread_exit(NULL);
-  if (create_character(&gfx))
-    pthread_exit(NULL);
-  if (create_status(&gfx) < 0)
+  if (init_screen() < 0 ||
+      create_backdrop(&gfx) < 0 ||
+      create_video(&gfx) < 0 ||
+      create_character(&gfx) < 0 ||
+      create_status(&gfx) < 0)
     pthread_exit(NULL);
   while (53)
     if (loop_env(&gfx) < 0)

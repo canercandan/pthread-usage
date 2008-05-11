@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 11:38:45 2008 caner candan
-** Last update Sun May 11 11:51:24 2008 caner candan
+** Last update Sun May 11 14:48:46 2008 caner candan
 */
 
 #include <SDL.h>
@@ -14,58 +14,101 @@
 t_info	gl_info;
 
 static t_pos	pos[] = {
-  {0, 0, 0, 17},
-  {1, 0, 13, 13},
-  {2, 8, 17, 0},
-  {3, 9, 13, -13},
-  {4, 9, -13, -13},
-  {5, 3, -17, 0},
-  {6, 0, -13, 13},
-  {-1, 0, 0, 0}
+  {0, 0, 0, 17, 0, 0, -42, 0},
+  {1, 0, 13, 13, 0, 0, -42, 0},
+  {2, 8, 17, 0, 0, 0, -42, 0},
+  {3, 12, 13, -13, 0, 0, -42, 0},
+  {4, 12, -13, -13, 0, 0, -42, 0},
+  {5, 4, -17, 0, 0, 0, -42, 0},
+  {6, 0, -13, 13, 0, 0, -42, 0}
 };
-
-static void	get_status(t_gfx *gfx, t_pos *pos, int x, int y)
-{
-  if (gl_info.status[pos->id] == EAT)
-    set_status(gfx, 6, x, y);
-  else if (gl_info.status[pos->id] == SLEEP)
-    set_status(gfx, 7, x, y);
-  else
-    set_status(gfx, 4, x, y);
-}
-
-static void	set_character_center(t_gfx *gfx, t_pos *pos)
-{
-  int		x_pos;
-  int		y_pos;
-
-  x_pos = (SDL_SF(gfx->backdrop)->w / 2) - (UNIT_X * pos->x)
-    - (CHARACTER_X / 2);
-  y_pos = (SDL_SF(gfx->backdrop)->h / 2) - (UNIT_Y * pos->y)
-    - (CHARACTER_Y / 2);
-  set_character(gfx, pos->direction, x_pos, y_pos);
-  get_status(gfx, pos, x_pos - 10, y_pos - 10);
-}
 
 static void	create_pos(t_gfx *gfx)
 {
   int		i;
+  int		x_pos;
+  int		y_pos;
 
   i = 0;
-  while (pos[i].id >= 0)
+  while (i < NB)
     {
-      set_character_center(gfx, &pos[i]);
+      if (!pos[i].visible)
+	break;
+      x_pos = SET_CHARACTER_X(pos[i].x);
+      y_pos = SET_CHARACTER_X(pos[i].y + 15);
+      set_character(gfx, pos[i].direction, x_pos, y_pos);
+      if (pos[NB - 1].visible)
+	{
+	  if (gl_info.status[pos[i].id] == EAT)
+	    set_status(gfx, 6, x_pos - 10, y_pos - 10);
+	  else if (gl_info.status[pos[i].id] == SLEEP)
+	    set_status(gfx, 7, x_pos - 10, y_pos - 10);
+	  else
+	    set_status(gfx, 4, x_pos - 10, y_pos - 10);
+	}
       i++;
     }
 }
 
+static void	get_direction(t_pos *pos)
+{
+  pos->cur_direction++;
+  if (pos->cur_y < pos->y)
+    {
+      if (pos->cur_direction < 12 || pos->cur_direction > 15)
+	pos->cur_direction = 12;
+    }
+  else if (pos->cur_x < pos->x)
+    {
+      if (pos->cur_direction < 4 || pos->cur_direction > 7)
+	pos->cur_direction = 4;
+    }
+  else if (pos->cur_x > pos->x)
+    if (pos->cur_direction < 8 || pos->cur_direction > 11)
+      pos->cur_direction = 8;
+}
+
+static char	init_anim(t_gfx *gfx, t_pos *pos)
+{
+  if (pos->cur_y != pos->y || pos->cur_x != pos->x)
+    {
+      if (pos->cur_y == -42)
+	pos->cur_y = (((SDL_SF(gfx->backdrop)->h / 2)
+		       - (CHARACTER_Y / 2)) / UNIT_Y) * -1;
+      get_direction(pos);
+      set_character(gfx, pos->cur_direction,
+		    SET_CHARACTER_X(pos->cur_x), SET_CHARACTER_Y(pos->cur_y));
+      if (pos->cur_y < pos->y)
+	pos->cur_y++;
+      else if (pos->cur_x < pos->x)
+	pos->cur_x++;
+      else if (pos->cur_x > pos->x)
+	pos->cur_x--;
+      return (0);
+    }
+  pos->visible = 1;
+  return (1);
+}
+
 int		loop_env(t_gfx *gfx)
 {
+  static int	i = 0;
+
   if (catch_keys() < 0)
     return (-1);
   set_backdrop(gfx, 0, 0);
   create_pos(gfx);
-  SDL_Flip(gfx->video);
-  SDL_Delay(DELAY);
+  if (i < NB)
+    {
+      if (init_anim(gfx, &pos[i]))
+	i++;
+      SDL_Flip(gfx->video);
+      SDL_Delay(DELAY_ANIM);
+    }
+  else
+    {
+      SDL_Flip(gfx->video);
+      SDL_Delay(DELAY);
+    }
   return (0);
 }
