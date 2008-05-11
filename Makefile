@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sun May 11 17:31:53 2008 caner candan
+## Last update Sun May 11 18:30:24 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -60,27 +60,22 @@ SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 OBJS_X		=	$(SRCS_X:.c=.o)
 OBJS_MY		=	$(SRCS_MY:.c=.o)
 
-.ifdef SDL
-OBJS		=	$(SRCS:.c=.o) $(SRCS_SDL:.c=.o) $(OBJS_X) $(OBJS_MY)
-
-INCLUDES_SDL	=	`pkg-config --cflags sdl`
-LIBRARY_SDL	=	`pkg-config --libs sdl`
-DEFINE_SDL	=	-D__SDL__
-.else
 OBJS		=	$(SRCS:.c=.o) $(OBJS_X) $(OBJS_MY)
-.endif
+OBJS_SDL	=	$(OBJS) $(SRCS_SDL:.c=.o)
 
-INCLUDES	=	-I./include $(INCLUDES_SDL)
-LIBRARY		=	-L. -lpthread $(LIBRARY_SDL)
+INCLUDES_SDL_42	=	`pkg-config --cflags sdl`
+LIBRARY_SDL_42	=	`pkg-config --libs sdl`
+DEFINE_SDL_42	=	-D__SDL__
 
-.ifdef DEBUG
+INCLUDES	=	-I./include $(INCLUDES_SDL_$(SDL))
+LIBRARY		=	-L. -lpthread $(LIBRARY_SDL_$(SDL))
+
 DEBUG		=	-g
-.endif
 
 PANIC		=	-Wall -W -Werror -pedantic -ansi -O2 -pipe	\
-			$(DEFINE_SDL)
+			$(DEFINE_SDL_$(SDL))
 
-CFLAGS		=	$(INCLUDES) $(DEBUG) $(PANIC)
+CFLAGS		=	$(INCLUDES) $(PANIC)
 LDFLAGS		=	$(LIBRARY)
 
 CC		=	gcc
@@ -94,11 +89,19 @@ MKD		=	mkdir -p
 .SUFFIXES	:	.c.o
 
 all		:
-			$(MKD) $(PATH_BIN)
-			$(MK) $(BIN)
+			@$(MKD) $(PATH_BIN)
+			@if [ "$(SDL)" = "42" ]; then	\
+				$(MK) with_sdl;		\
+			else				\
+				$(MK) $(BIN);		\
+			fi
+
+with_sdl	:	$(OBJS_SDL)
+			@$(MKD) $(PATH_SRC)
+			$(CC) -o $(BIN) $(OBJS_SDL) $(LDFLAGS)
 
 $(BIN)		:	$(OBJS)
-			$(MKD) $(PATH_SRC)
+			@$(MKD) $(PATH_SRC)
 			$(CC) -o $@ $(OBJS) $(LDFLAGS)
 
 clean		:
