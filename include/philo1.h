@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 14:37:53 2008 caner candan
+** Last update Sun May 11 15:28:45 2008 caner candan
 */
 
 #ifndef __PHILO1_H__
@@ -120,6 +120,7 @@ typedef struct	s_info
   char		*status;
   char		mode_gfx;
   char		end;
+  t_gfx		gfx;
 }		t_info;
 
 /*
@@ -147,6 +148,7 @@ int	get_id(int thread_id, int direction, int nb_philo);
 ** Inits' function
 */
 void	init_signal(void);
+void	power_off(int signal);
 int	init_sdl(void);
 int	parse_args(int ac, char **av);
 

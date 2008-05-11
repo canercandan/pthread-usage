@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sat May 10 22:27:26 2008 caner candan
+## Last update Sun May 11 15:29:00 2008 caner candan
 ##
 
 NAME_APP	=	philo1
@@ -45,7 +45,8 @@ SRCS		=	$(PATH_SRC)main.c		\
 			$(PATH_SRC)create_thread.c	\
 			$(PATH_SRC)get_id.c		\
 			$(PATH_SRC)init_sdl.c		\
-			$(PATH_SRC)parse_args.c
+			$(PATH_SRC)parse_args.c		\
+			$(PATH_SRC)power_off.c
 
 SRCS_MY		=	$(PATH_MY)my_putnbr.c		\
 			$(PATH_MY)my_putstr.c		\

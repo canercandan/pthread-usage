@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Sat May 10 20:20:57 2008 caner candan
-** Last update Sun May 11 15:11:17 2008 caner candan
+** Last update Sun May 11 15:29:39 2008 caner candan
 */
 
 #include <unistd.h>
@@ -18,24 +18,17 @@ t_info	gl_info;
 
 static void	*sdl_powa(void *data)
 {
-  t_gfx		gfx;
-
   (void)data;
   if (init_screen() < 0 ||
-      create_backdrop(&gfx) < 0 ||
-      create_video(&gfx) < 0 ||
-      create_character(&gfx) < 0 ||
-      create_status(&gfx) < 0)
+      create_backdrop(&gl_info.gfx) < 0 ||
+      create_video(&gl_info.gfx) < 0 ||
+      create_character(&gl_info.gfx) < 0 ||
+      create_status(&gl_info.gfx) < 0)
     pthread_exit(NULL);
   while (53)
-    if (loop_env(&gfx) < 0)
+    if (loop_env(&gl_info.gfx) < 0)
       break;
-  destroy_surface(gfx.status);
-  destroy_surface(gfx.character);
-  destroy_surface(gfx.backdrop);
-  destroy_surface(gfx.video);
-  destroy_screen();
-  exit(0);
+  power_off(0);
   pthread_exit(NULL);
 }
 
