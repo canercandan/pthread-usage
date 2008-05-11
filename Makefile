@@ -5,7 +5,7 @@
 ## Login   <candan_c@epitech.net>
 ## 
 ## Started on  Tue Apr 15 11:19:53 2008 caner candan
-## Last update Sun May 11 15:34:14 2008 florent hochwelker
+## Last update Sun May 11 16:04:53 2008 florent hochwelker
 ##
 
 NAME_APP	=	philo1
@@ -24,7 +24,6 @@ BIN		=	$(PATH_BIN)$(NAME_APP)
 SRCS_X		=	$(PATH_X)xpthread_create.c		\
 			$(PATH_X)xpthread_mutex_destroy.c	\
 			$(PATH_X)xpthread_mutex_init.c		\
-			$(PATH_X)xpthread_mutex_lock.c		\
 			$(PATH_X)xpthread_mutex_unlock.c	\
 			$(PATH_X)xmalloc.c
 
