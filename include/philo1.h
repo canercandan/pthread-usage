@@ -5,7 +5,7 @@
 ** Login   <candan_c@epitech.net>
 ** 
 ** Started on  Tue May  6 15:45:38 2008 caner candan
-** Last update Sun May 11 15:31:45 2008 florent hochwelker
+** Last update Sun May 11 18:42:09 2008 florent hochwelker
 */
 
 #ifndef __PHILO1_H__
@@ -90,10 +90,6 @@
 */
 # define INFO(data)	((t_info *)(data))
 # define GFX(data)	((t_gfx *)(data))
-
-/* extern int	*gl_status; */
-/* extern int	*gl_hp; */
-/* extern void	*gl_stick; */
 
 /*
 ** GFX's structure
